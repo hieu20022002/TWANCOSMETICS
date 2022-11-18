@@ -1,0 +1,379 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{218C51BE-B880-49B5-9CF7-D7BB820A164C}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TWANCOSMETICS</RootNamespace>
+    <AssemblyName>TWANCOSMETICS</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44328</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.2.0.1\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.9\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.9\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Code\DataProvider.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountModel.cs" />
+    <Compile Include="Models\Address.cs">
+      <DependentUpon>TWANDBContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Brand.cs">
+      <DependentUpon>TWANDBContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Cart.cs">
+      <DependentUpon>TWANDBContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CartDetail.cs">
+      <DependentUpon>TWANDBContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Category.cs">
+      <DependentUpon>TWANDBContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Feedback.cs">
+      <DependentUpon>TWANDBContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Image.cs">
+      <DependentUpon>TWANDBContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Inventory.cs">
+      <DependentUpon>TWANDBContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Order.cs">
+      <DependentUpon>TWANDBContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OrderDetail.cs">
+      <DependentUpon>TWANDBContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Post.cs">
+      <DependentUpon>TWANDBContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Product.cs">
+      <DependentUpon>TWANDBContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RegisterModel.cs" />
+    <Compile Include="Models\Role.cs">
+      <DependentUpon>TWANDBContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TWANDBContext.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TWANDBContext.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TWANDBContext.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TWANDBContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TWANDBContext.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TWANDBContext.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>TWANDBContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Voucher.cs">
+      <DependentUpon>TWANDBContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Images\Banner\Banner 1.png" />
+    <Content Include="Images\Banner\Banner 2.png" />
+    <Content Include="Images\Banner\Banner 3.png" />
+    <Content Include="Images\Logo.svg" />
+    <Content Include="Images\Nền Đăng Nhập_Đăng kí.png" />
+    <Content Include="Images\Posters\Banner1.png" />
+    <Content Include="Images\Posters\Banner2.png" />
+    <Content Include="Images\Posters\Banner3.png" />
+    <Content Include="Images\Posters\Bài viết\255851207_4488384907923767_5021908811223513261_n_d1d0829cfb.jpg" />
+    <Content Include="Images\Posters\Bài viết\dewy-skin-insta-jin-4.jpg" />
+    <Content Include="Images\Posters\Bán chạy nhất\cocoon trọn bộ.png" />
+    <Content Include="Images\Posters\Bán chạy nhất\cocoon.jpg" />
+    <Content Include="Images\Posters\Bán chạy nhất\cocoon1.jpg" />
+    <Content Include="Images\Posters\Bán chạy nhất\cocoon3.jpg" />
+    <Content Include="Images\Posters\Nền Đăng Nhập_Đăng kí.png" />
+    <Content Include="Images\Products\Cocoon\bí_đao_mask_100ml-removebg-preview.png" />
+    <Content Include="Images\Products\Cocoon\Bộ sản phẩm Cocoon.jpg" />
+    <Content Include="Images\Products\Cocoon\bộ_sản_phẩm_bí_đao-removebg-preview.png" />
+    <Content Include="Images\Products\Cocoon\dung_dịch_chấm_mụn_cocoon-removebg-preview.png" />
+    <Content Include="Images\Products\Cocoon\Dầu_tẩy_trang_cocoon_hoa_hồng_140ml-removebg-preview.png" />
+    <Content Include="Images\Products\Cocoon\Gel bí đao rửa mặt Cocoon.jpg" />
+    <Content Include="Images\Products\Cocoon\gel_rửa_mặt_cocoon_bí_đao_310ml-removebg-preview.png" />
+    <Content Include="Images\Products\Cocoon\hoa_hồng_mask_100ml-removebg-preview.png" />
+    <Content Include="Images\Products\Cocoon\hoa_hồng_mask_cocoon_100ml-removebg-preview.png" />
+    <Content Include="Images\Products\Cocoon\mặt_nạ_bí_đao_cocoon_50ml-removebg-preview.png" />
+    <Content Include="Images\Products\Cocoon\ntr_cocoon_bí_đao_140ml-removebg-preview.png" />
+    <Content Include="Images\Products\Cocoon\ntr_cocoon_bí_đao_500ml-removebg-preview.png" />
+    <Content Include="Images\Products\Cocoon\ntr_cocoon_hoa_hồng_140ml-removebg-preview.png" />
+    <Content Include="Images\Products\Cocoon\ntr_cocoon_hoa_hồng_500ml-removebg-preview.png" />
+    <Content Include="Images\Products\Cocoon\Nước bí đao cân bằng Cocoon.jpg" />
+    <Content Include="Images\Products\Cocoon\srm_cocoon-removebg-preview.png" />
+    <Content Include="Images\Products\Cocoon\srm_nghệ_hưng_yên_310ml-removebg-preview.png" />
+    <Content Include="Images\Products\Cocoon\thạch_bí_đao-removebg-preview.png" />
+    <Content Include="Images\Products\Cocoon\Tinh chất bí đao Cocoon.jpg" />
+    <Content Include="Images\Products\Cocoon\toner_bí_đao_310ml-removebg-preview.png" />
+    <Content Include="Images\Products\Cocoon\toner_nghệ_hưng_yên_310ml-removebg-preview.png" />
+    <Content Include="Images\Products\Cocoon\ttbc_cocoon-removebg-preview.png" />
+    <Content Include="Images\Products\Images\kcn_image_91g-removebg-preview.png" />
+    <Content Include="Images\Products\Klairs\nước_hoa_hồng_không_mùi_klairs-removebg-preview.png" />
+    <Content Include="Images\Products\Klairs\Nước_Hoa_Hồng_Klairs_Dành_Cho_Da_Nhạy_Cảm_180ml-removebg-preview.png" />
+    <Content Include="Images\Products\Klairs\tinh-chat-duong-da-klairs-removebg-preview.png" />
+    <Content Include="Images\Products\La Roche Possay\combo_laroche_possay-removebg-preview.png" />
+    <Content Include="Images\Products\La Roche Possay\gel_rửa_mặt_làm_sạch_perfectly_natural_cleansing_gel-removebg-preview.png" />
+    <Content Include="Images\Products\La Roche Possay\kem_dưỡng_thể_Paula_Choices-removebg-preview.png" />
+    <Content Include="Images\Products\La Roche Possay\Nước_làm_sạch_sâu_và_tẩy_trang_la-Roche_Posay__da_nhạy_cảm-removebg-preview.png" />
+    <Content Include="Images\Products\La Roche Possay\srm_la_roche_posay__da_dầu-removebg-preview.png" />
+    <Content Include="Images\Products\Manyo\cleansing_soda_foam-removebg-preview.png" />
+    <Content Include="Images\Products\Manyo\pure_deep_cleansing_foam-removebg-preview.png" />
+    <Content Include="Images\Products\Manyo\serum_manyo-removebg-preview.png" />
+    <Content Include="Images\Products\Manyo\vegan_foam-removebg-preview %281%29.png" />
+    <Content Include="Images\Products\Naruko\srm_naruko-removebg-preview.png" />
+    <Content Include="Images\Products\Paula_s Choices\Bộ_sản_phẩm_Naacinamide_+_Peptide-removebg-preview.png" />
+    <Content Include="Images\Products\Paula_s Choices\dd_loai_bỏ_tbc_paulachoice-removebg-preview.png" />
+    <Content Include="Images\Products\Paula_s Choices\kcn_paulaChoice_chong_lao_hoa-removebg-preview.png" />
+    <Content Include="Images\Products\Paula_s Choices\kem_dưỡng_thể_Paula_Choices-removebg-preview.png" />
+    <Content Include="Images\Products\Paula_s Choices\kem_dưỡng_ẩm_giàu_chất_điện_giải-removebg-preview.png" />
+    <Content Include="Images\Products\Paula_s Choices\Kem_Dưỡng_Ẩm_Klairs_Fundamental_Water_Gel_Cream_70ml-removebg-preview.png" />
+    <Content Include="Images\Products\Paula_s Choices\tinh_chất_thu_nhỏ_lỗ_chân_lông-removebg-preview.png" />
+    <Content Include="Images\Products\Simple\Nước_cân_bằng_Simple-removebg-preview.png" />
+    <Content Include="Images\T_W_A_N-removebg-preview.png" />
+    <Content Include="Models\TWANDBContext.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TWANDBContext.Context.cs</LastGenOutput>
+      <DependentUpon>TWANDBContext.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\TWANDBContext.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TWANDBContext.edmx</DependentUpon>
+      <LastGenOutput>TWANDBContext.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Models\TWANDBContext.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TWANDBContext.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\TWANDBContext.edmx.diagram">
+      <DependentUpon>TWANDBContext.edmx</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Styles\Css\HomePage.css" />
+    <Content Include="Styles\Css\InfoManagement.css" />
+    <Content Include="Styles\Css\Login.css" />
+    <Content Include="Styles\Css\Register.css" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\InfoManagement.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>61231</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44328/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

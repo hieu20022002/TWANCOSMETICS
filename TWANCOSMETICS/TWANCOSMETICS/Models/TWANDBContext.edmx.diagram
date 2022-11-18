@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="32ebbfa5cf9f49abbb641ab67388326b" Name="Diagram1" ZoomLevel="46">
+        <EntityTypeShape EntityType="twancosmeticsModel.Address" Width="1.5" PointX="8.25" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="twancosmeticsModel.Brand" Width="1.5" PointX="3" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="twancosmeticsModel.Cart" Width="1.5" PointX="8.25" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="twancosmeticsModel.CartDetail" Width="1.5" PointX="10.5" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="twancosmeticsModel.Category" Width="1.5" PointX="3" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="twancosmeticsModel.Feedback" Width="1.5" PointX="10.25" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="twancosmeticsModel.Image" Width="1.5" PointX="0.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="twancosmeticsModel.Inventory" Width="1.5" PointX="7.5" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="twancosmeticsModel.Order" Width="1.5" PointX="11.25" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="twancosmeticsModel.OrderDetail" Width="1.5" PointX="13.5" PointY="20.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="twancosmeticsModel.Post" Width="1.5" PointX="3" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="twancosmeticsModel.Product" Width="1.5" PointX="5.25" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="twancosmeticsModel.Role" Width="1.5" PointX="3.75" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="twancosmeticsModel.User" Width="1.5" PointX="6" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="twancosmeticsModel.Voucher" Width="1.5" PointX="3" PointY="24.25" IsExpanded="true" />
+        <AssociationConnector Association="twancosmeticsModel.Fk_Address_User" ManuallyRouted="false" />
+        <AssociationConnector Association="twancosmeticsModel.Fk_Brand_Image" ManuallyRouted="false" />
+        <AssociationConnector Association="twancosmeticsModel.Fk_Product_Brand" ManuallyRouted="false" />
+        <AssociationConnector Association="twancosmeticsModel.FK_Cart_User" ManuallyRouted="false" />
+        <AssociationConnector Association="twancosmeticsModel.FK_CartDetail_Cart" ManuallyRouted="false" />
+        <AssociationConnector Association="twancosmeticsModel.FK_CartDetail_Inventory" ManuallyRouted="false" />
+        <AssociationConnector Association="twancosmeticsModel.FK_Product_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="twancosmeticsModel.FK_Feedback_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="twancosmeticsModel.FK_Feedback_User" ManuallyRouted="false" />
+        <AssociationConnector Association="twancosmeticsModel.FK_Post_Image" ManuallyRouted="false" />
+        <AssociationConnector Association="twancosmeticsModel.Fk_Product_Image" ManuallyRouted="false" />
+        <AssociationConnector Association="twancosmeticsModel.Fk_User_Image" ManuallyRouted="false" />
+        <AssociationConnector Association="twancosmeticsModel.FK_Voucher_Image" ManuallyRouted="false" />
+        <AssociationConnector Association="twancosmeticsModel.Fk_Inventory_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="twancosmeticsModel.FK_Order_User" ManuallyRouted="false" />
+        <AssociationConnector Association="twancosmeticsModel.Fk_Order_Voucher" ManuallyRouted="false" />
+        <AssociationConnector Association="twancosmeticsModel.FK_OrderDetail_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="twancosmeticsModel.FK_Post_User" ManuallyRouted="false" />
+        <AssociationConnector Association="twancosmeticsModel.FK_User_Role" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
