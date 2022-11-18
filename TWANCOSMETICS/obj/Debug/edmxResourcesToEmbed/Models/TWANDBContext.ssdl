@@ -1,0 +1,464 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="twancosmeticsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Brand">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="description" Type="text" />
+    <Property Name="image_id" Type="int" />
+    <Property Name="status" Type="tinyint" Nullable="false" />
+    <Property Name="delete_flag" Type="tinyint" Nullable="false" />
+    <Property Name="date_created" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cart">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="date_created" Type="datetime" Nullable="false" />
+    <Property Name="modifiled_at" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CartDetail">
+    <Key>
+      <PropertyRef Name="cart_id" />
+      <PropertyRef Name="inventory_id" />
+    </Key>
+    <Property Name="cart_id" Type="int" Nullable="false" />
+    <Property Name="inventory_id" Type="int" Nullable="false" />
+    <Property Name="quantity" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Feedback">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="product_id" Type="int" Nullable="false" />
+    <Property Name="message" Type="text" />
+    <Property Name="rate" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Image">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="u_image" Type="text" />
+  </EntityType>
+  <EntityType Name="Inventory">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="variant" Type="text" Nullable="false" />
+    <Property Name="product_id" Type="int" Nullable="false" />
+    <Property Name="quantity" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="price" Type="float" Nullable="false" />
+    <Property Name="date_created" Type="datetime" Nullable="false" />
+    <Property Name="date_updated" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="100" />
+    <Property Name="address" Type="text" Nullable="false" />
+    <Property Name="phone" Type="nvarchar" MaxLength="10" />
+    <Property Name="total" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="paid" Type="tinyint" Nullable="false" />
+    <Property Name="status" Type="nvarchar" MaxLength="100" />
+    <Property Name="created_at" Type="datetime" Nullable="false" />
+    <Property Name="id_voucher" Type="int" />
+  </EntityType>
+  <EntityType Name="OrderDetail">
+    <Key>
+      <PropertyRef Name="order_id" />
+      <PropertyRef Name="inventory_id" />
+    </Key>
+    <Property Name="order_id" Type="int" Nullable="false" />
+    <Property Name="inventory_id" Type="int" Nullable="false" />
+    <Property Name="quantity" Type="int" Nullable="false" />
+    <Property Name="total" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="Post">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="content" Type="text" Nullable="false" />
+    <Property Name="title" Type="text" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="image_id" Type="int" Nullable="false" />
+    <Property Name="created_at" Type="datetime" Nullable="false" />
+    <Property Name="modifiled_at" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="description" Type="text" />
+    <Property Name="SKU" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="image_id" Type="int" />
+    <Property Name="brand_id" Type="int" Nullable="false" />
+    <Property Name="category_id" Type="int" Nullable="false" />
+    <Property Name="status" Type="tinyint" Nullable="false" />
+    <Property Name="delete_flag" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fullname" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="gender" Type="bit" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="phoneNumber" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="address" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="city" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="role_id" Type="int" Nullable="false" />
+    <Property Name="username" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="created_at" Type="datetime" Nullable="false" />
+    <Property Name="modifiled_at" Type="datetime" Nullable="false" />
+    <Property Name="image_id" Type="int" />
+    <Property Name="code" Type="int" />
+  </EntityType>
+  <EntityType Name="Voucher">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="code" Type="text" Nullable="false" />
+    <Property Name="discount_percentage" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="discount_price" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="exp" Type="datetime" Nullable="false" />
+    <Property Name="min_bill" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="remain" Type="int" Nullable="false" />
+    <Property Name="image_id" Type="int" />
+  </EntityType>
+  <Association Name="Fk_Brand_Image">
+    <End Role="Image" Type="Self.Image" Multiplicity="0..1" />
+    <End Role="Brand" Type="Self.Brand" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Image">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Brand">
+        <PropertyRef Name="image_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cart_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Cart">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CartDetail_Cart">
+    <End Role="Cart" Type="Self.Cart" Multiplicity="1" />
+    <End Role="CartDetail" Type="Self.CartDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cart">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CartDetail">
+        <PropertyRef Name="cart_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CartDetail_Inventory">
+    <End Role="Inventory" Type="Self.Inventory" Multiplicity="1" />
+    <End Role="CartDetail" Type="Self.CartDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Inventory">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CartDetail">
+        <PropertyRef Name="inventory_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Feedback_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="Feedback" Type="Self.Feedback" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Feedback">
+        <PropertyRef Name="product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Feedback_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Feedback" Type="Self.Feedback" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Feedback">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_Inventory_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="Inventory" Type="Self.Inventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Inventory">
+        <PropertyRef Name="product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_Order_Voucher">
+    <End Role="Voucher" Type="Self.Voucher" Multiplicity="0..1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Voucher">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="id_voucher" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderDetail_Order">
+    <End Role="Order" Type="Self.Order" Multiplicity="1" />
+    <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="OrderDetail">
+        <PropertyRef Name="order_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Post_Image">
+    <End Role="Image" Type="Self.Image" Multiplicity="1" />
+    <End Role="Post" Type="Self.Post" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Image">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Post">
+        <PropertyRef Name="image_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Post_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Post" Type="Self.Post" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Post">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_Product_Brand">
+    <End Role="Brand" Type="Self.Brand" Multiplicity="1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Brand">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="brand_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="category_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_Product_Image">
+    <End Role="Image" Type="Self.Image" Multiplicity="0..1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Image">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="image_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_User_Image">
+    <End Role="Image" Type="Self.Image" Multiplicity="0..1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Image">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="image_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="role_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Voucher_Image">
+    <End Role="Image" Type="Self.Image" Multiplicity="0..1" />
+    <End Role="Voucher" Type="Self.Voucher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Image">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Voucher">
+        <PropertyRef Name="image_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="twancosmeticsModelStoreContainer">
+    <EntitySet Name="Brand" EntityType="Self.Brand" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cart" EntityType="Self.Cart" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CartDetail" EntityType="Self.CartDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Feedback" EntityType="Self.Feedback" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Image" EntityType="Self.Image" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Inventory" EntityType="Self.Inventory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderDetail" EntityType="Self.OrderDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Post" EntityType="Self.Post" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Voucher" EntityType="Self.Voucher" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="Fk_Brand_Image" Association="Self.Fk_Brand_Image">
+      <End Role="Image" EntitySet="Image" />
+      <End Role="Brand" EntitySet="Brand" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cart_User" Association="Self.FK_Cart_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Cart" EntitySet="Cart" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CartDetail_Cart" Association="Self.FK_CartDetail_Cart">
+      <End Role="Cart" EntitySet="Cart" />
+      <End Role="CartDetail" EntitySet="CartDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CartDetail_Inventory" Association="Self.FK_CartDetail_Inventory">
+      <End Role="Inventory" EntitySet="Inventory" />
+      <End Role="CartDetail" EntitySet="CartDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Feedback_Product" Association="Self.FK_Feedback_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Feedback" EntitySet="Feedback" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Feedback_User" Association="Self.FK_Feedback_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Feedback" EntitySet="Feedback" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_Inventory_Product" Association="Self.Fk_Inventory_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Inventory" EntitySet="Inventory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_User" Association="Self.FK_Order_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_Order_Voucher" Association="Self.Fk_Order_Voucher">
+      <End Role="Voucher" EntitySet="Voucher" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderDetail_Order" Association="Self.FK_OrderDetail_Order">
+      <End Role="Order" EntitySet="Order" />
+      <End Role="OrderDetail" EntitySet="OrderDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Post_Image" Association="Self.FK_Post_Image">
+      <End Role="Image" EntitySet="Image" />
+      <End Role="Post" EntitySet="Post" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Post_User" Association="Self.FK_Post_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Post" EntitySet="Post" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_Product_Brand" Association="Self.Fk_Product_Brand">
+      <End Role="Brand" EntitySet="Brand" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Category" Association="Self.FK_Product_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_Product_Image" Association="Self.Fk_Product_Image">
+      <End Role="Image" EntitySet="Image" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_User_Image" Association="Self.Fk_User_Image">
+      <End Role="Image" EntitySet="Image" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Voucher_Image" Association="Self.FK_Voucher_Image">
+      <End Role="Image" EntitySet="Image" />
+      <End Role="Voucher" EntitySet="Voucher" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

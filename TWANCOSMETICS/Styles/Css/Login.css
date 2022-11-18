@@ -1,0 +1,111 @@
+﻿body {
+    background-image: url('../../Images/nền đăng nhập_đăng kí.png');
+    margin-left: 200px;
+    margin-right: 200px;
+    font-family: 'Inter', sans-serif;
+}
+* {
+    box-sizing: border-box;  
+}
+img{
+    max-width:100%;
+    height:auto;
+    background-size:contain;
+}
+.flex-container{
+    display:flex;
+    flex-flow: row wrap;
+    justify-content:center;
+    align-items:center;
+}
+.flex-container > div{
+    float: left;
+    width: 50%;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+.flex-item-right {    
+    background-color: white;
+    border-radius: 10px;
+    text-align: center;
+    padding: 1cm 1.5cm 1cm 1.5cm; 
+    flex: 50%;
+}
+.flex-item-left{
+    flex:50%;
+}
+/* Responsive layout - makes a one column-layout instead of a two-column layout */
+@media (max-width: 800px) {
+    .flex-item-right, .flex-item-left {
+        flex: 100%;
+    }
+}
+
+.dangnhap {
+    display: flex;
+    color: #FF9AA2;
+    text-align: center;
+    font-size: 4vw;
+    font-family: 'Pacifico', cursive;
+    font-weight: bold;
+    justify-content: space-around;
+    align-items: center;
+    align-content: space-around;
+}
+.input {
+    border-radius: 10px;
+    background-color: #F4F6F6;
+    font-size:large;
+    font-style: italic;
+    padding-left: 0.5cm; 
+    width: 80%;
+    height:50px;
+    border:none;
+}
+button {
+    border-radius: 10px;
+    color: white;
+    font-size: 1.5vw;
+    text-align: center;
+    border: none;
+    width:80%;
+}
+.btdangnhap {
+    background-color: #FF9AA2;
+    width: 80%;
+    height: 50px; 
+}
+.bttaotk { 
+    background-color: #C7CEEA;
+    height: 50px;
+}
+.quenmk {
+    text-align: center;
+    color: #FF9AA2;
+    font-style:italic;
+    font-size: 20px;
+    text-decoration:none;
+}
+
+.margin-top-10, .mt-10 {
+    margin-top: 10px !important;
+}
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+.alert {
+    position: relative;
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+div {
+    display: block;
+}

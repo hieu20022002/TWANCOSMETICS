@@ -1,0 +1,201 @@
+﻿
+@{
+    ViewBag.Title = "Register";
+    Layout = null;
+}
+
+@model TWANCOSMETICS.Models.RegisterModel
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tạo tài khoản</title>
+    @Styles.Render("~/Styles/Css/Register.css")
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Pacifico&display=swap" rel="stylesheet">
+
+
+</head>
+
+<body>
+    <div class="flex-container">
+        <div class="flex-item-left">
+            <img src="~/Images/Logo.svg" />
+        </div>
+        <div style="background-color: white ">
+            @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "flex-item-right" }))
+            {
+                <p>
+                    <span class="taotk">Tạo tài khoản</span>
+                </p>
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "alert alert-danger" })
+                <p>
+                    @Html.TextBoxFor(model => model.FullName, new { @class = "input", placeholder = "Họ và tên", @autofocus = "autofocus" })
+                <p>@Html.ValidationMessageFor(model => model.FullName, "", new { @class = "alert alert-danger" })</p>
+                </p>
+                <p>
+                    @Html.TextBoxFor(model => model.UserName, new { @class = "input", placeholder = "Tên đăng nhập", @autofocus = "autofocus" })
+                <p>@Html.ValidationMessageFor(model => model.UserName, "", new { @class = "alert alert-danger" })</p>
+                </p>
+                <p>
+                    @Html.TextBoxFor(model => model.Email, new { @class = "input", placeholder = "Email", @autofocus = "autofocus" })
+                <p>@Html.ValidationMessageFor(model => model.Email, "", new { @class = "alert alert-danger" })</p>
+                </p>
+                <p>
+                    @Html.PasswordFor(model => model.Password, new { @class = "input", placeholder = "Mật khẩu", @type = "password", pattern = "(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,}", id = "matkhau", name = "matkhau" })
+                <p>@Html.ValidationMessageFor(model => model.Password, "", new { @class = "alert alert-danger" })</p>
+                <div id="message">
+                    <h3>Mật khẩu phải đáp ứng:</h3>
+                    <p id="letter" class="invalid"><b>Có ít nhất 1 chữ cái thường</b></p>
+                    <p id="capital" class="invalid"><b>Có ít nhất 1 chữ cái in hoa</b></p>
+                    <p id="number" class="invalid"><b>Có ít nhất 1số</b></p>
+                    <p id="length" class="invalid"><b>Tối thiểu 8 ký tự</b></p>
+                </div>
+                </p>
+                <p>
+                    @Html.PasswordFor(model => model.Confirmpwd, new { @class = "input", placeholder = "Nhập lại mật khẩu", @type = "password" })
+                <p>@Html.ValidationMessageFor(model => model.Confirmpwd, "", new { @class = "alert alert-danger" })</p>
+
+                </p>
+                @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "input", placeholder = "Số điện thoại", @type = "tel", @autofocus = "autofocus" })
+                <p>@Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "alert alert-danger" })</p>
+
+                <div class="radio">
+                    <p class="radio-nam">
+                        <label for="nam">Nam</label>
+                        @Html.RadioButtonFor(model => model.gender, "Nam", new { @class = "nut-radio", value = "Nam" })
+
+                    </p>
+                    <p class="radio-nu">
+                        <label for="nu">Nữ</label>
+                        @Html.RadioButtonFor(model => model.gender, "Nữ", new { @class = "nut-radio", value = "Nữ" })
+                    </p>
+                </div>
+                <p>@Html.ValidationMessageFor(model => model.gender, "", new { @class = "alert alert-danger" })</p>
+                <p>
+                   @Html.TextBoxFor(model => model.Region, new { @class = "input", placeholder = "Địa chỉ", @autofocus = "autofocus" })
+                <p>@Html.ValidationMessageFor(model => model.Region, "", new { @class = "alert alert-danger" })</p>
+                </p>
+
+
+
+                <p class="diachi">
+                    @Html.DropDownListFor(model => model.City, new SelectList(new List<Object> { }), "Chọn tỉnh/thành phố", new { @class = "form-select form-select-sm mb-3", id = "city", name = "city", style = "margin-right: 0.5cm;" })
+                <p>@Html.ValidationMessageFor(model => model.City, "", new { @class = "alert alert-danger" })</p>
+                </p>
+                <p class="diachi">
+                    @Html.DropDownListFor(model => model.District, new SelectList(new List<Object> { }), "Chọn quận/huyện", new { @class = "form-select form-select-sm mb-3", id = "district", name = "district", style = "margin-right: 0.5cm;" })
+                <p> @Html.ValidationMessageFor(model => model.District, "", new { @class = "alert alert-danger" })</p>
+                </p>
+                <p class="diachi">
+                    @Html.DropDownListFor(model => model.Ward, new SelectList(new List<Object> { }), "Chọn phường/xã", new { @class = "form-select form-select-sm mb-3", id = "ward", name = "ward", style = "margin-right: 0.5cm;" })
+                <p>@Html.ValidationMessageFor(model => model.Ward, "", new { @class = "alert alert-danger" })</p>
+                </p>
+
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+                <script>
+                    var citis = document.getElementById("city");
+                    var districts = document.getElementById("district");
+                    var wards = document.getElementById("ward");
+                    var Parameter = {
+                        url: "https://raw.githubusercontent.com/kenzouno1/DiaGioiHanhChinhVN/master/data.json",
+                        method: "GET",
+                        responseType: "application/json",
+                    };
+                    var promise = axios(Parameter);
+                    promise.then(function (result) {
+                        renderCity(result.data);
+                    });
+
+                    function renderCity(data) {
+                        for (const x of data) {
+                            citis.options[citis.options.length] = new Option(x.Name, x.Name);
+                        }
+                        citis.onchange = function () {
+                            district.length = 1;
+                            ward.length = 1;
+                            if (this.value != "") {
+                                const result = data.filter(n => n.Name === this.value);
+
+                                for (const k of result[0].Districts) {
+                                    district.options[district.options.length] = new Option(k.Name, k.Name);
+                                }
+                            }
+                        };
+                        district.onchange = function () {
+                            ward.length = 1;
+                            const dataCity = data.filter((n) => n.Name === citis.value);
+                            if (this.value != "") {
+                                const dataWards = dataCity[0].Districts.filter(n => n.Name === this.value)[0].Wards;
+
+                                for (const w of dataWards) {
+                                    wards.options[wards.options.length] = new Option(w.Name, w.Name);
+                                }
+                            }
+                        };
+                    }
+                </script>
+
+                <button class="btdangki" name="btnDK">Đăng kí </button>
+            }
+        </div>
+        <script>
+            var myInput = document.getElementById("matkhau");
+            var letter = document.getElementById("letter");
+            var capital = document.getElementById("capital");
+            var number = document.getElementById("number");
+            var length = document.getElementById("length");
+
+            myInput.onfocus = function() {
+                document.getElementById("message").style.display = "block";
+            }
+
+            myInput.onblur = function() {
+                document.getElementById("message").style.display = "none";
+            }
+
+            myInput.onkeyup = function() {
+                var lowerCaseLetters = /[a-z]/g;
+                if (myInput.value.match(lowerCaseLetters)) {
+                    letter.classList.remove("invalid");
+                    letter.classList.add("valid");
+                } else {
+                    letter.classList.remove("valid");
+                    letter.classList.add("invalid");
+                }
+
+
+                var upperCaseLetters = /[A-Z]/g;
+                if (myInput.value.match(upperCaseLetters)) {
+                    capital.classList.remove("invalid");
+                    capital.classList.add("valid");
+                } else {
+                    capital.classList.remove("valid");
+                    capital.classList.add("invalid");
+                }
+
+                var numbers = /[0-9]/g;
+                if (myInput.value.match(numbers)) {
+                    number.classList.remove("invalid");
+                    number.classList.add("valid");
+                } else {
+                    number.classList.remove("valid");
+                    number.classList.add("invalid");
+                }
+
+                if (myInput.value.length >= 8) {
+                    length.classList.remove("invalid");
+                    length.classList.add("valid");
+                } else {
+                    length.classList.remove("valid");
+                    length.classList.add("invalid");
+                }
+            }
+        </script>
+    </div>
+</body>
+
+</html>
