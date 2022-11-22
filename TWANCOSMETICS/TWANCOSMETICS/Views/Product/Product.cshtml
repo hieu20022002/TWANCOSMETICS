@@ -1,0 +1,153 @@
+﻿
+@{
+
+    ViewBag.Title = "Product";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model List<TWANCOSMETICS.Models.ProductViewModel>
+@{
+    int sizeprice = -1;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Tất cả sản phẩm</title>
+    @Styles.Render("~/Styles/Css/ProductsPage.css")
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#flip").click(function () {
+                $("#panel").slideDown("slow");
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <div class="frame">
+        Trang chủ/Sản phẩm
+    </div>
+    <div class="sapxep">
+        Sắp xếp theo
+        <select class="sapxep-select">
+            <option>
+                Giá:Thấp đến Cao
+            </option>
+            <option>
+                Giá:Cao đến Thấp
+            </option>
+        </select>
+    </div>
+    <section class="row">
+        <div class="column left">
+            <div id="flip"><h3><u>Danh mục</u></h3></div>
+            <div id="panel">
+                <ul>
+                    <li><a href="#taytrang">Tẩy trang</a></li>
+                    <li>
+                        <a href="#raumat">Rửa mặt </a>
+                    </li>
+                    <li><a href="#taytebao">Tẩy tế bào chết</a></li>
+                    <li><a href="#toner">Toner</a></li>
+                    <li><a href="#matna">Mặt nạ </a></li>
+                    <li><a href="#tinhchat">Tinh chất</a></li>
+                    <li><a href="#kemmat">Kem mắt</a></li>
+                    <li><a href="#duongam">Dưỡng ẩm </a></li>
+                    <li><a href="#chongnang">Chống nắng</a></li>
+                    <li><a href="#combo">Combo</a></li>
+                    <li><a href="#tatcasp">Tất cả sản phẩm</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3><span class="material-symbols-outlined" id="filter">filter_alt</span><u>Bộ lọc tìm kiếm</u></h3>
+            </div>
+            <h4>Thương hiệu</h4>
+            <form style="display:block">
+                <input type="checkbox" id="cocoon" name="cocoon" value="Cocoon">
+                <label for="cocoon"> Cocoon</label><br>
+                <input type="checkbox" id="klairs" name="klairs" value="Klairs">
+                <label for="klairs"> Dear, Klairs</label><br>
+                <input type="checkbox" id="image" name="image" value="Image">
+                <label for="image"> Image</label><br>
+                <input type="checkbox" id="manyo" name="manyo" value="Manyo">
+                <label for="manyo"> Manyo</label><br>
+                <input type="checkbox" id="naruko" name="naruko" value="Naruko">
+                <label for="naruko"> Naruko</label><br>
+                <input type="checkbox" id="paulachoice" name="paulachoice" value="PaulaChoice">
+                <label for="paulachoice"> Paula's Choice</label><br>
+                <input type="checkbox" id="ordinary" name="ordinary" value="Ordinary">
+                <label for="ordinary"> The Ordinary</label><br>
+            </form>
+            <div>
+                <h3>Giá</h3>
+                <div>
+                    <input type="text" placeholder="TỪ" class="khoanggia" /><span> - </span>
+                    <input type="text" placeholder="ĐẾN" class="khoanggia" />
+                </div>
+                <button class="button-apdung">ÁP DỤNG</button>
+            </div>
+        </div>
+        <div class="column right">
+            <div class="grid-container">
+                @foreach (var item in Model)
+                {
+                    var link = "/chi-tiet/" + item.name;
+                    if (item.quantity > 0)
+                    {
+                         
+                        
+                        <div>
+                            <a href="@link"><img src=@item.u_image class="image-product" /></a>
+                            <p>@item.name @item.variant</p>
+                            <p class="price-product">@item.ListPrice[0] ~ @item.ListPrice[item.ListPrice.Count()-1] </p>
+                        </div>
+                    }
+
+                }
+
+                @*<div>
+            <img src="..\Images\Products\Paula_s Choices\kem_dưỡng_ẩm_giàu_chất_điện_giải-removebg-preview.png" class="image-product" />
+            <p class="name-product">
+                Kem dưỡng ẩm giàu chất điện giải water - Infusing Electrolyte Moisturizer (fullsize)
+            </p>
+            <p class="price-product">892.500 đ</p>
+        </div>
+        <div>
+            <img src="..\Images\Products\Paula_s Choices\kem_dưỡng_ẩm_giàu_chất_điện_giải-removebg-preview.png" class="image-product" />
+            <p class="name-product">
+                Kem dưỡng ẩm giàu chất điện giải water - Infusing Electrolyte Moisturizer (fullsize)
+            </p>
+            <p class="price-product">892.500 đ</p>
+        </div>
+        <div>
+            <img src="..\Images\Products\Paula_s Choices\kem_dưỡng_ẩm_giàu_chất_điện_giải-removebg-preview.png" class="image-product" />
+            <p class="name-product">
+                Kem dưỡng ẩm giàu chất điện giải water - Infusing Electrolyte Moisturizer (fullsize)
+            </p>
+            <p class="price-product">892.500 đ</p>
+        </div>
+        <div>
+            <img src="..\Images\Products\Paula_s Choices\kem_dưỡng_ẩm_giàu_chất_điện_giải-removebg-preview.png" class="image-product" />
+            <p class="name-product">
+                Kem dưỡng ẩm giàu chất điện giải water - Infusing Electrolyte Moisturizer (fullsize)
+            </p>
+            <p class="price-product">892.500 đ</p>
+        </div>*@
+            </div>
+        </div>
+    </section>
+    <div class="pagination">
+        <a href="#">❮</a>
+        <a href="#" class="active">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#">❯</a>
+    </div>
+</html>
+

@@ -1,0 +1,321 @@
+﻿body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.heading1 {
+    position: center;
+    display: flex;
+    color: white;
+    background-color: #E0BBE4;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    height: auto;
+    font-size: 1.5vw;
+}
+
+.logo {
+    position: absolute;
+    float: left;
+    width: 22vw;
+    height: 15vw;
+    margin-left: 0;
+}
+
+.thanhtimkiem {
+    margin-left: 18%;
+    margin-top: 4%;
+    width: 65%;
+    position: absolute;
+    background-color: white;
+    border-radius: 150px;
+    border: 2px solid #000000;
+}
+
+.timkiemsp {
+    float: left;
+    width: 100%;
+    background: #FDFEFE;
+    border: none;
+    border-radius: 50vw;
+    font-style: italic;
+    height: 2.4vw;
+    font-size: 1.2vw;
+}
+
+#icon {
+    color: black;
+    font-size: 3vw;
+    font-weight: bolder;
+    padding: 5px;
+}
+
+.icon2 {
+    margin-top: 4%;
+    margin-right: 6vw;
+    float: right;
+}
+
+#icon-search {
+    display: flex;
+    align-content: center;
+    color: black;
+    font-size: 2.3vw;
+    font-weight: bolder;
+    position: absolute;
+    right: 0%;
+    border-radius: 170px;
+}
+
+button {
+    text-decoration: none;
+    background: white;
+    border: none;
+    font-weight: bolder;
+    font-size: 28px;
+    color: black;
+}
+
+.nav {
+    overflow: hidden;
+    margin-top: 10%;
+    margin-left: 4%;
+    position: static;
+}
+
+    .nav ul {
+    }
+
+    .nav li {
+        float: left;
+        display: block;
+        padding-right: 6%;
+    }
+
+    .nav a {
+        display: block;
+        font-weight: bolder;
+        text-decoration: none;
+        color: black;
+        font-size: 1.8vw;
+        padding: 1.2vw 1.2vw;
+        margin: auto;
+    }
+
+        .nav a:hover {
+            background-color: #E0BBE4;
+        }
+
+        .nav a:active {
+            background-color: #E0BBE4;
+        }
+.frame {
+    margin: 0;
+    background-color: #E5E7E9;
+    margin-top: 1%;
+    padding-left: 7%;
+    line-height: 2vw;
+    font-size: 1.2vw;
+}
+.sapxep {
+    float: right;
+    margin-right: 2vw;
+    padding: 1vw;
+    font-size: 1.2vw;
+}
+.sapxep-select {
+    font-size: 1.2vw;
+    font-family: 'Inter', sans-serif;
+    padding:0.5vw;
+}
+.column.right {
+    width: 80%;
+    float: right;
+    
+}
+.column {
+   max-width:100%;
+   margin-top: 5vw;
+}
+    .column.left {
+        width: 20%;
+        float: left;
+       
+    }
+.row {
+    margin-left:2vw;
+    margin-right:2vw;
+    margin-bottom:5vw;
+}
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+    
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .column.right, .column.left {
+        width: 100%;
+    }
+}
+#panel {
+    margin: 0;
+    padding-left: 0;
+    background-color: white;
+    border: solid 2px #957DAD;
+    width: fit-content;
+    height: fit-content;
+    display: none;
+}
+
+li {
+    display: block;  
+}
+
+li a {
+    display: block;
+    text-decoration: none;
+    color: black;
+    justify-content:center;
+    align-items:center;
+    padding-bottom:1vw;
+    margin: 0;
+    text-align:left;
+    font-size:1.2vw;
+}
+#filter{
+    font-size:1.2vw;
+}
+form {
+    font-weight: bold;
+    width: 100%;
+    margin: auto;
+}
+form label {
+   font-weight:300;
+   font-size:1.2vw;
+}
+.khoanggia{
+    line-height:1.8vw;
+    width:5vw;
+}
+.button-apdung {
+    margin-top:1vw;
+    color: white;
+    background-color: #FF9AA2;
+    padding:0.5vw;
+    width:10vw;
+    font-size:1.2vw;
+    font-weight:100;
+    border-radius:50px;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    column-gap:2.5vw;
+    row-gap:2.5vw;
+}
+    .grid-container > div {
+        border: 1px solid #D9D9D9;
+        width:100%;
+    }
+.image-product {
+    width:17vw;
+    background: #F8F9F9;
+   
+}
+.name-product{
+    font-weight:bold;
+    text-align:center;
+}
+.price-product {
+    text-align: center;
+    font-weight: bold;
+}
+.pagination {
+    display: inline-block;
+    float: right;
+    margin-right: 2vw;
+    position:static;
+}
+
+    .pagination a {
+        color: black;
+        float: left;       
+        text-decoration: none;
+        transition: background-color .3s;
+        padding:1vw;
+        font-weight:bold;
+    }
+
+        .pagination a.active {
+            background-color: #FF9AA2;
+            color: white;
+        }
+
+        .pagination a:hover:not(.active) {
+            background-color: #ddd;
+        }
+footer {
+    background-color: #957DAD;
+    padding-top: 6%;
+    padding-left: 2%;
+    padding-right: 2%;
+    margin-bottom: 0;
+    margin-top:10vw;
+    
+}
+
+.nav2 {
+    overflow: hidden;
+    position: relative;
+}
+
+    .nav2 a {
+        margin: auto;
+        text-align: center;
+        font-weight: bolder;
+        text-decoration: none;
+        color: black;
+        font-size: 1.5vw;
+        padding: 6%;
+        margin: auto;
+        justify-content: space-around;
+        align-content: space-around;
+    }
+
+.logo2 {
+    position: absolute;
+    width: 20vw;
+    height: 15vw;
+    margin-left: 37%;
+    background: #957DAD;
+    margin-top:5vw;
+}
+
+.line2 {
+    border: 1px solid #00000080;
+    padding-left: 0;
+    padding-right: 0;
+    position: relative;
+}
+
+.footer-text {
+    display: flex;
+    align-content: space-around;
+    justify-content: space-around;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    font-size: 1vw;
+    position: relative;
+    margin-bottom: 0;
+    margin-right: 0;
+}

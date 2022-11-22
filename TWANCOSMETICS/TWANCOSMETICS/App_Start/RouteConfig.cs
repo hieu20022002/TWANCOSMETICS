@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Mvc.Routing.Constraints;
 using System.Web.Routing;
 
 namespace TWANCOSMETICS
@@ -18,6 +19,12 @@ namespace TWANCOSMETICS
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+            routes.MapRoute(
+              name: "Product Detail",
+              url: "chi-tiet/{metatitle}-{id}",
+              defaults: new { controller = "Product", action = "Detail", id = UrlParameter.Optional },
+              namespaces: new[] { "TWANCOSMETICS.Controllers" }
+           );
         }
     }
 }

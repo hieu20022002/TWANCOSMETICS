@@ -131,6 +131,8 @@
     <Compile Include="Code\DataProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Dao\ProductDao.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -171,6 +173,7 @@
     <Compile Include="Models\Product.cs">
       <DependentUpon>TWANDBContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ProductViewModel.cs" />
     <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Models\Role.cs">
       <DependentUpon>TWANDBContext.tt</DependentUpon>
@@ -300,6 +303,7 @@
     <Content Include="Styles\Css\HomePage.css" />
     <Content Include="Styles\Css\InfoManagement.css" />
     <Content Include="Styles\Css\Login.css" />
+    <Content Include="Styles\Css\ProductsPage.css" />
     <Content Include="Styles\Css\Register.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -316,6 +320,7 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\InfoManagement.cshtml" />
+    <Content Include="Views\Product\Product.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

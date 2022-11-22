@@ -145,6 +145,12 @@ namespace TWANCOSMETICS.Controllers
             Session["Account"] = null;
             return Redirect("/");
         }
+        public ActionResult Cancel()
+        {
 
+              ViewData["Cancel"] = Request.Headers["Cancel"].ToString();
+            return (ActionResult)ViewData["Cancel"];
+
+        }
     }
 }

@@ -75,73 +75,76 @@
                     </p>
                 </div>
                 <p>@Html.ValidationMessageFor(model => model.gender, "", new { @class = "alert alert-danger" })</p>
-                
-                    @*@Html.TextBoxFor(model => model.Region, new { @class = "input", placeholder = "Địa chỉ", @autofocus = "autofocus" })
-                <p>@Html.ValidationMessageFor(model => model.Region, "", new { @class = "alert alert-danger" })</p>
-                </p>
+
+                @*@Html.TextBoxFor(model => model.Region, new { @class = "input", placeholder = "Địa chỉ", @autofocus = "autofocus" })
+            <p>@Html.ValidationMessageFor(model => model.Region, "", new { @class = "alert alert-danger" })</p>
+            </p>
 
 
 
-                <p class="diachi">
-                    @Html.DropDownListFor(model => model.City, new SelectList(new List<Object> { }), "Chọn tỉnh/thành phố", new { @class = "form-select form-select-sm mb-3", id = "city", name = "city", style = "margin-right: 0.5cm;" })
-                <p>@Html.ValidationMessageFor(model => model.City, "", new { @class = "alert alert-danger" })</p>
-                </p>
-                <p class="diachi">
-                    @Html.DropDownListFor(model => model.District, new SelectList(new List<Object> { }), "Chọn quận/huyện", new { @class = "form-select form-select-sm mb-3", id = "district", name = "district", style = "margin-right: 0.5cm;" })
-                <p> @Html.ValidationMessageFor(model => model.District, "", new { @class = "alert alert-danger" })</p>
-                </p>
-                <p class="diachi">
-                    @Html.DropDownListFor(model => model.Ward, new SelectList(new List<Object> { }), "Chọn phường/xã", new { @class = "form-select form-select-sm mb-3", id = "ward", name = "ward", style = "margin-right: 0.5cm;" })
-                <p>@Html.ValidationMessageFor(model => model.Ward, "", new { @class = "alert alert-danger" })</p>
-                </p>
+            <p class="diachi">
+                @Html.DropDownListFor(model => model.City, new SelectList(new List<Object> { }), "Chọn tỉnh/thành phố", new { @class = "form-select form-select-sm mb-3", id = "city", name = "city", style = "margin-right: 0.5cm;" })
+            <p>@Html.ValidationMessageFor(model => model.City, "", new { @class = "alert alert-danger" })</p>
+            </p>
+            <p class="diachi">
+                @Html.DropDownListFor(model => model.District, new SelectList(new List<Object> { }), "Chọn quận/huyện", new { @class = "form-select form-select-sm mb-3", id = "district", name = "district", style = "margin-right: 0.5cm;" })
+            <p> @Html.ValidationMessageFor(model => model.District, "", new { @class = "alert alert-danger" })</p>
+            </p>
+            <p class="diachi">
+                @Html.DropDownListFor(model => model.Ward, new SelectList(new List<Object> { }), "Chọn phường/xã", new { @class = "form-select form-select-sm mb-3", id = "ward", name = "ward", style = "margin-right: 0.5cm;" })
+            <p>@Html.ValidationMessageFor(model => model.Ward, "", new { @class = "alert alert-danger" })</p>
+            </p>
 
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
-                <script>
-                    var citis = document.getElementById("city");
-                    var districts = document.getElementById("district");
-                    var wards = document.getElementById("ward");
-                    var Parameter = {
-                        url: "https://raw.githubusercontent.com/kenzouno1/DiaGioiHanhChinhVN/master/data.json",
-                        method: "GET",
-                        responseType: "application/json",
-                    };
-                    var promise = axios(Parameter);
-                    promise.then(function (result) {
-                        renderCity(result.data);
-                    });
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+            <script>
+                var citis = document.getElementById("city");
+                var districts = document.getElementById("district");
+                var wards = document.getElementById("ward");
+                var Parameter = {
+                    url: "https://raw.githubusercontent.com/kenzouno1/DiaGioiHanhChinhVN/master/data.json",
+                    method: "GET",
+                    responseType: "application/json",
+                };
+                var promise = axios(Parameter);
+                promise.then(function (result) {
+                    renderCity(result.data);
+                });
 
-                    function renderCity(data) {
-                        for (const x of data) {
-                            citis.options[citis.options.length] = new Option(x.Name, x.Name);
-                        }
-                        citis.onchange = function () {
-                            district.length = 1;
-                            ward.length = 1;
-                            if (this.value != "") {
-                                const result = data.filter(n => n.Name === this.value);
-
-                                for (const k of result[0].Districts) {
-                                    district.options[district.options.length] = new Option(k.Name, k.Name);
-                                }
-                            }
-                        };
-                        district.onchange = function () {
-                            ward.length = 1;
-                            const dataCity = data.filter((n) => n.Name === citis.value);
-                            if (this.value != "") {
-                                const dataWards = dataCity[0].Districts.filter(n => n.Name === this.value)[0].Wards;
-
-                                for (const w of dataWards) {
-                                    wards.options[wards.options.length] = new Option(w.Name, w.Name);
-                                }
-                            }
-                        };
+                function renderCity(data) {
+                    for (const x of data) {
+                        citis.options[citis.options.length] = new Option(x.Name, x.Name);
                     }
-                </script>*@
-                <button class="btthoat" >Thoát </button>
+                    citis.onchange = function () {
+                        district.length = 1;
+                        ward.length = 1;
+                        if (this.value != "") {
+                            const result = data.filter(n => n.Name === this.value);
+
+                            for (const k of result[0].Districts) {
+                                district.options[district.options.length] = new Option(k.Name, k.Name);
+                            }
+                        }
+                    };
+                    district.onchange = function () {
+                        ward.length = 1;
+                        const dataCity = data.filter((n) => n.Name === citis.value);
+                        if (this.value != "") {
+                            const dataWards = dataCity[0].Districts.filter(n => n.Name === this.value)[0].Wards;
+
+                            for (const w of dataWards) {
+                                wards.options[wards.options.length] = new Option(w.Name, w.Name);
+                            }
+                        }
+                    };
+                }
+            </script>*@
+
+                @*<button class="btthoat" id="bttcancel">Thoát </button>*@
+                <input type="button" class="btthoat" onclick="history.go(-1)" value="Thoát" />
                 <button class="btdangki" name="btnDK">Đăng kí </button>
             }
         </div>
+
         <script>
             var myInput = document.getElementById("matkhau");
             var letter = document.getElementById("letter");
@@ -149,15 +152,15 @@
             var number = document.getElementById("number");
             var length = document.getElementById("length");
 
-            myInput.onfocus = function() {
+            myInput.onfocus = function () {
                 document.getElementById("message").style.display = "block";
             }
 
-            myInput.onblur = function() {
+            myInput.onblur = function () {
                 document.getElementById("message").style.display = "none";
             }
 
-            myInput.onkeyup = function() {
+            myInput.onkeyup = function () {
                 var lowerCaseLetters = /[a-z]/g;
                 if (myInput.value.match(lowerCaseLetters)) {
                     letter.classList.remove("invalid");
