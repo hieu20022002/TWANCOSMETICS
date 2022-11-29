@@ -1,0 +1,18 @@
+﻿
+@{
+    Layout = null;
+}
+@model List<TWANCOSMETICS.Models.Brand>
+
+<h4>Thương hiệu</h4>
+<form style="display:block">
+    @foreach (var item in Model)
+    {
+        
+        <input type="checkbox" id="@item.name," name="@item.name" value="@item.id">
+        <label for="@item.name"> @item.name</label><br>
+       
+
+
+    }
+</form>

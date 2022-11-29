@@ -19,12 +19,24 @@ namespace TWANCOSMETICS
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+            //routes.MapRoute(
+            //  name: "Product Detail",
+            //  url: "chi-tiet/{name}-{id}",
+            //  defaults: new { controller = "Product", action = "", id = UrlParameter.Optional },
+            //  namespaces: new[] { "TWANCOSMETICS.Controllers" }
+           //);
+           // routes.MapRoute(
+           //    name: "ProductCategory",
+           //    url: "san-pham/{name}-{id}",
+           //    defaults: new { controller = "Product", action = "Product", id = UrlParameter.Optional },
+           //    namespaces: new[] { "TWANCOSMETICS.Controllers" }
+           //);
             routes.MapRoute(
-              name: "Product Detail",
-              url: "chi-tiet/{metatitle}-{id}",
-              defaults: new { controller = "Product", action = "Detail", id = UrlParameter.Optional },
-              namespaces: new[] { "TWANCOSMETICS.Controllers" }
-           );
+                name: "ProductCategory",
+                url: "Product.htm",
+                defaults: new { controller = "Product", action = "ProductCategory", id = UrlParameter.Optional },
+                namespaces: new string[] { "TWANCOSMETICS.Web.Controllers" }
+            );
         }
     }
 }

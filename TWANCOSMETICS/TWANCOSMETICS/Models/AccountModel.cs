@@ -13,6 +13,7 @@ namespace TWANCOSMETICS.Models
 {
     public class AccountModel
     {
+        
         private twancosmeticsEntities _db = new twancosmeticsEntities();
         private User _user;
         public AccountModel()

@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "Product";
+    ViewBag.Title = "ProductCategory";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -34,15 +34,15 @@
     </div>
     <div class="sapxep">
         Sắp xếp theo
-
-        <li class="dropdown">
-            <ul class="dropdown-menu">
-                <li>@Html.ActionLink("Giá: Thấp đến cao", "Product", "Product", new { sort = "price_asc" },null)</li> 
-
-                <li>@Html.ActionLink("Giá: Cao đến thấp", "Product", "Product", new { sort = "price_des" },null)</li> 
-            </ul>
-        </li>
- </div>
+        <select class="sapxep-select">
+            <option>
+                @Html.ActionLink("Giá: Thấp đến cao", "Product", "Product", new { sort = "price_asc" }, null)
+            </option>
+            <option>
+                @Html.ActionLink("Giá: Cao đến thấp", "Product", "Product", new { sort = "price_des" }, null)
+            </option>
+        </select>
+    </div>
     <section class="row">
         <div class="column left">
             @Html.Action("CategoryList", "Product")
@@ -164,4 +164,6 @@
             <a href="#">❯</a>
         </div>*@
 </html>
+
+
 

@@ -1,0 +1,20 @@
+﻿
+@{
+    Layout = null;
+}
+
+@model  List<TWANCOSMETICS.Models.Category>
+<div id="flip"><h3><u>Danh mục</u></h3></div>
+<div id="panel">
+    <ul>
+
+        @{
+            foreach (var item in Model)
+            {
+                <li>@Html.ActionLink(item.name,"ProductCategory","Product", new {cateID=item.id},null)</li>
+                
+            }
+        }
+
+    </ul>
+</div>
