@@ -247,7 +247,7 @@ form label {
     position:static;
 }
 
-    .pagination a {
+    .pagination li {
         color: black;
         float: left;       
         text-decoration: none;

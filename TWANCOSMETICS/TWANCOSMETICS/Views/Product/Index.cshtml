@@ -1,12 +1,16 @@
 ﻿
 @{
-    ViewBag.Title = "ProductCategory";
+    ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@model List<TWANCOSMETICS.Models.ProductViewModel>
+@model PagedList.IPagedList<TWANCOSMETICS.Models.ProductViewModel>
+@using PagedList.Mvc;
+
 @{
     int sizeprice = -1;
+    var BrandID = Session["brandID"];
+    var CategoryID = Session["cateID"];
 }
 <!DOCTYPE html>
 <html>
@@ -19,6 +23,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
     <script>
         $(document).ready(function () {
             $("#flip").click(function () {
@@ -26,22 +31,23 @@
             });
         });
     </script>
+
 </head>
 <body>
 
     <div class="frame">
-        Trang chủ/Sản phẩm
+        @Html.ActionLink("Trang chủ", "Index", "Home")/@Html.ActionLink("Sản phẩm", "Index", "Product")
     </div>
     <div class="sapxep">
         Sắp xếp theo
-        <select class="sapxep-select">
-            <option>
-                @Html.ActionLink("Giá: Thấp đến cao", "Product", "Product", new { sort = "price_asc" }, null)
-            </option>
-            <option>
-                @Html.ActionLink("Giá: Cao đến thấp", "Product", "Product", new { sort = "price_des" }, null)
-            </option>
-        </select>
+
+        <li class="dropdown">
+            <ul class="dropdown-menu">
+                <li>@Html.ActionLink("Giá: Thấp đến cao", "Index", "Product", new { sort = "price_asc", cateID = CategoryID, brandID = BrandID }, null)</li>
+
+                <li>@Html.ActionLink("Giá: Cao đến thấp", "Index", "Product", new { sort = "price_des", cateID = CategoryID, brandID = BrandID }, null)</li>
+            </ul>
+        </li>
     </div>
     <section class="row">
         <div class="column left">
@@ -50,17 +56,18 @@
                 <h3><span class="material-symbols-outlined" id="filter">filter_alt</span><u>Bộ lọc tìm kiếm</u></h3>
             </div>
             @Html.Action("BrandList", "Product")
+            @*<div>
+            <h3>Giá</h3>
             <div>
-                <h3>Giá</h3>
-                <div>
-                    <input type="text" placeholder="TỪ" class="khoanggia" /><span> - </span>
-                    <input type="text" placeholder="ĐẾN" class="khoanggia" />
-                </div>
-                <button class="button-apdung">ÁP DỤNG</button>
+                <input type="text" placeholder="TỪ" class="khoanggia" /><span> - </span>
+                <input type="text" placeholder="ĐẾN" class="khoanggia" />
             </div>
+            <button class="button-apdung">ÁP DỤNG</button>
+        </div>*@
+
         </div>
         <div class="column right">
-            <div class="grid-container">
+            <div class="grid-container" id="grid-container">
                 @foreach (var item in Model)
                 {
                     //var link = "/chi-tiet/" + item.name + "-" + item.id;
@@ -73,11 +80,11 @@
                             <p>@item.name </p>
                             @{if (item.ListPrice.Count() > 1)
                                 {
-                                    <p class="price-product">@item.ListPrice[0] ~ @item.ListPrice[item.ListPrice.Count() - 1] </p>
+                                    <p class="price-product" id="price-product">@item.ListPrice[0].ToString("c0") ~ @item.ListPrice[item.ListPrice.Count() - 1].ToString("c0") </p>
                                 }
                                 else
                                 {
-                                    <p class="price-product">@item.price</p>
+                                    <p class="price-product" id="price-product">@item.price.ToString("c0")</p>
                                 }
                             }
 
@@ -117,43 +124,50 @@
             </div>
         </div>
     </section>
-    @if (ViewBag.TotalPage > 1)
-    {
-        var pageDisplay = (int)ViewBag.MaxPage;
-        int totalPage = (int)ViewBag.TotalPage;
-        int currentPage = ((int)ViewBag.Page);
-        var startPageIndex = Math.Max(1, currentPage - pageDisplay / 2);
-        var endPageIndex = Math.Min(totalPage, currentPage + pageDisplay / 2);
+    
+    <div class="pagination" >
+        @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page, sort = ViewBag.SortKey }))
+    </div>
+    @*@if (ViewBag.TotalPage > 1)
+        {
+            var pageDisplay = (int)ViewBag.MaxPage;
+            int totalPage = (int)ViewBag.TotalPage;
+            int currentPage = ((int)ViewBag.Page);
+            var startPageIndex = Math.Max(1, currentPage - pageDisplay / 2);
+            var endPageIndex = Math.Min(totalPage, currentPage + pageDisplay / 2);
 
-        <div class="pagination">
-            <ul class="pagination">
-                @if (currentPage > ViewBag.First)
-                {
-                    <li><a href="#" title="Trang đầu" class="first"><i class="fa fa-angle-double-left"></i></a></li>
-                    <li>
-                        <a href="#" title="Trang trước" class="prev"><i class="fa fa-angle-left"></i></a>
-                    </li>
-                    for (int i = startPageIndex; i <= endPageIndex; i++)
+            <div class="pagination">
+                <ul class="pagination">
+
+                    @if (currentPage > ViewBag.First)
+                    {
+                        <li><a href="?page=@ViewBag.First&sort=@ViewBag.SortKey" title="Trang đầu" class="first"><i class="fa fa-angle-double-left"></i></a></li>
+                        <li>
+                            <a href="?page=@ViewBag.Prev&sort=@ViewBag.SortKey" title="Trang trước" class="prev"><i class="fa fa-angle-left"></i></a>
+                        </li>
+                    }
+                    @for (int i = startPageIndex; i <= endPageIndex; i++)
                     {
                         if (currentPage == i)
                         {
-                            <li> <a href="#" class="active" title="Trang @i">@i</a></li>
+                            <li> <a href="?page=@i&sort=@ViewBag.SortKey" class="active" title="Trang @i">@i</a></li>
 
                         }
                         else
                         {
-                            <li><a href="#" title="Trang @i" class="pos">@i</a></li>
+                            <li><a href="?page=@i&sort=@ViewBag.SortKey" title="Trang @i" class="pos">@i</a></li>
                         }
                     }
-                    if (currentPage < totalPage)
+                   @if (currentPage < totalPage)
                     {
-                        <li><a href="#" class="next" title="Trang sau"><i class="fa fa-angle-right"></i></a></li>
-                        <li> <a href="#" class="last" title="Trang cuối"><i class="fa fa-angle-double-right"></i></a></li>
+                    <li><a href="?page=@ViewBag.Next&sort=@ViewBag.SortKey" class="next" title="Trang sau"><i class="fa fa-angle-right"></i></a></li>
+                    <li> <a href="?page=@ViewBag.Last&sort=@ViewBag.SortKey" class="last" title="Trang cuối"><i class="fa fa-angle-double-right"></i></a></li>
                     }
-                }
-            </ul>
-        </div>
-    }
+
+                </ul>
+            </div>
+        }*@
     @*<div class="pagination">
 
             <a href="#">❮</a>
@@ -164,6 +178,4 @@
             <a href="#">❯</a>
         </div>*@
 </html>
-
-
 

@@ -1,6 +1,7 @@
 ﻿
 @{
     Layout = null;
+    var BrandID = Session["brandID"];
 }
 
 @model  List<TWANCOSMETICS.Models.Category>
@@ -11,8 +12,8 @@
         @{
             foreach (var item in Model)
             {
-                <li>@Html.ActionLink(item.name,"ProductCategory","Product", new {cateID=item.id},null)</li>
-                
+                <li>@Html.ActionLink(item.name, "Index", "Product", new { cateID = item.id, brandID = BrandID }, null)</li>
+
             }
         }
 
