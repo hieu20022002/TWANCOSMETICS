@@ -27,9 +27,7 @@
                 <p>
                     <span class="dangnhap">Đăng nhập</span>
                 </p>
-                <div class="alert alert-danger" role="alert">
-                    @Html.ValidationSummary()
-                </div>
+                @Html.ValidationSummary(false, "",new { @class = "text-danger" })
                 @Html.TextBoxFor(model => model.username, new { @class = "input", placeholder = "Tên đăng nhập", @autofocus = "autofocus" })
                 <p>
                     @Html.PasswordFor(model => model.password, new { @class = "input", placeholder = "Mật khẩu", @type = "password" })

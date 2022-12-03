@@ -6,7 +6,6 @@ body {
     margin-bottom: 3vw;
     font-family: 'Inter', sans-serif;
 }
-
 * {
     box-sizing: border-box;
 }
@@ -112,87 +111,6 @@ button {
     justify-content: center;
     align-items: center;
     float: right;
-    padding: 0.5vw 1vw 0.5vw 1vw;
+    padding: 0.5vw;
     margin-bottom: 1vw;
-    width: 8vw;
-}
-
-.btthoat {
-    display: flex;
-    background-color: #FF9AA2;
-    justify-content: center;
-    align-items: center;
-    float: left;
-    width: 8vw;
-    padding: 0.5vw 1vw 0.5vw 1vw;
-    margin-bottom: 1vw;
-}
-
-.alert-danger {
-    color: #721c24;
-    background-color: #f8d7da;
-    border-color: #f5c6cb;
-}
-
-.alert {
-    position: relative;
-    padding: .75rem 1.25rem;
-    margin-bottom: 1rem;
-    border: 1px solid transparent;
-    border-radius: .25rem;
-}
-
-#message {
-    display: none;
-    background: #f1f1f1;
-    color: #000;
-    position: relative;
-}
-
-    #message p {
-        padding: 15x 35px;
-        font-size: 10px;
-        text-align: left;
-        margin-left: 1vw;
-    }
-
-.valid {
-    color: green;
-}
-
-    .valid:before {
-        position: relative;
-        content: "\2714";
-        left: -3px;
-    }
-
-.invalid {
-    color: red;
-}
-
-    .invalid:before {
-        position: relative;
-        content: "\2716";
-        left: -3px;
-    }
-
-select {
-    border-radius: 10px;
-    background-color: #F4F6F6;
-    font-style: italic;
-    width: 95%;
-    height: 3.5vw;
-    border: none;
-    font-size: 1.2vw;
-}
-
-option {
-    font-size: 1.2vw;
-    font-style: normal;
-    padding: 1vw;
-}
-
-.diachi {
-    background-color: #F4F6F6;
-    border-radius: 10px;
 }

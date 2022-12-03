@@ -29,7 +29,7 @@ namespace TWANCOSMETICS.Models
         [DataType(DataType.Password)]
         public string Confirmpwd { get; set; }
         [Required(ErrorMessage = "Vui lòng nhập số điện thoại..")]
-        [RegularExpression(@"^((09(\d){8})|(086(\d){7})|(088(\d){7})|(089(\d){7})|(01(\d){9}))$", ErrorMessage = "Số điện thoại không hợp lệ")]
+        [RegularExpression(@"^((09(\d){8})|(07(\d){8})|(08(\d){8})|(05(\d){8})|(03(\d){8}))$", ErrorMessage = "Số điện thoại không hợp lệ")]
         public string PhoneNumber { get; set; }
         [Required(ErrorMessage = "Vui lòng chọn giới tính..")]
         public string gender { get; set; }

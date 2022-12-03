@@ -34,34 +34,34 @@
                 @Html.ValidationSummary(true, "", new { @class = "alert alert-danger" })
                 <p>
                     @Html.TextBoxFor(model => model.FullName, new { @class = "input", placeholder = "Họ và tên", @autofocus = "autofocus" })
-                <p>@Html.ValidationMessageFor(model => model.FullName, "", new { @class = "alert alert-danger" })</p>
+                    @Html.ValidationMessageFor(model => model.FullName, "")
                 </p>
                 <p>
                     @Html.TextBoxFor(model => model.UserName, new { @class = "input", placeholder = "Tên đăng nhập", @autofocus = "autofocus" })
-                <p>@Html.ValidationMessageFor(model => model.UserName, "", new { @class = "alert alert-danger" })</p>
+                    @Html.ValidationMessageFor(model => model.UserName, "")
                 </p>
                 <p>
                     @Html.TextBoxFor(model => model.Email, new { @class = "input", placeholder = "Email", @autofocus = "autofocus" })
-                <p>@Html.ValidationMessageFor(model => model.Email, "", new { @class = "alert alert-danger" })</p>
+                    @Html.ValidationMessageFor(model => model.Email, "")
                 </p>
                 <p>
                     @Html.PasswordFor(model => model.Password, new { @class = "input", placeholder = "Mật khẩu", @type = "password", pattern = "(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,}", id = "matkhau", name = "matkhau" })
-                <p>@Html.ValidationMessageFor(model => model.Password, "", new { @class = "alert alert-danger" })</p>
-                <div id="message">
-                    <h3>Mật khẩu phải đáp ứng:</h3>
-                    <p id="letter" class="invalid"><b>Có ít nhất 1 chữ cái thường</b></p>
-                    <p id="capital" class="invalid"><b>Có ít nhất 1 chữ cái in hoa</b></p>
-                    <p id="number" class="invalid"><b>Có ít nhất 1số</b></p>
-                    <p id="length" class="invalid"><b>Tối thiểu 8 ký tự</b></p>
-                </div>
+                    @Html.ValidationMessageFor(model => model.Password, "")
+                    <div id="message">
+                        <h3>Mật khẩu phải đáp ứng:</h3>
+                        <p id="letter" class="invalid"><b>Có ít nhất 1 chữ cái thường</b></p>
+                        <p id="capital" class="invalid"><b>Có ít nhất 1 chữ cái in hoa</b></p>
+                        <p id="number" class="invalid"><b>Có ít nhất 1số</b></p>
+                        <p id="length" class="invalid"><b>Tối thiểu 8 ký tự</b></p>
+                    </div>
                 </p>
                 <p>
                     @Html.PasswordFor(model => model.Confirmpwd, new { @class = "input", placeholder = "Nhập lại mật khẩu", @type = "password" })
-                <p>@Html.ValidationMessageFor(model => model.Confirmpwd, "", new { @class = "alert alert-danger" })</p>
+                    @Html.ValidationMessageFor(model => model.Confirmpwd, "")
 
                 </p>
-                @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "input", placeholder = "Số điện thoại", @type = "tel", @autofocus = "autofocus" })
-                <p>@Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "alert alert-danger" })</p>
+                @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "input", placeholder = "Số điện thoại", @type = "tel", @autofocus = "autofocus", id = "mobile" })
+                @Html.ValidationMessageFor(model => model.PhoneNumber, "")
 
                 <div class="radio">
                     <p class="radio-nam">
@@ -73,71 +73,72 @@
                         <label for="nu">Nữ</label>
                         @Html.RadioButtonFor(model => model.gender, "Nữ", new { @class = "nut-radio", value = "Nữ" })
                     </p>
+
                 </div>
-                <p>@Html.ValidationMessageFor(model => model.gender, "", new { @class = "alert alert-danger" })</p>
+                <p>@Html.ValidationMessageFor(model => model.gender, "")</p>
 
                 @*@Html.TextBoxFor(model => model.Region, new { @class = "input", placeholder = "Địa chỉ", @autofocus = "autofocus" })
-            <p>@Html.ValidationMessageFor(model => model.Region, "", new { @class = "alert alert-danger" })</p>
-            </p>
+                <p>@Html.ValidationMessageFor(model => model.Region, "", new { @class = "alert alert-danger" })</p>
+                </p>
 
 
 
-            <p class="diachi">
-                @Html.DropDownListFor(model => model.City, new SelectList(new List<Object> { }), "Chọn tỉnh/thành phố", new { @class = "form-select form-select-sm mb-3", id = "city", name = "city", style = "margin-right: 0.5cm;" })
-            <p>@Html.ValidationMessageFor(model => model.City, "", new { @class = "alert alert-danger" })</p>
-            </p>
-            <p class="diachi">
-                @Html.DropDownListFor(model => model.District, new SelectList(new List<Object> { }), "Chọn quận/huyện", new { @class = "form-select form-select-sm mb-3", id = "district", name = "district", style = "margin-right: 0.5cm;" })
-            <p> @Html.ValidationMessageFor(model => model.District, "", new { @class = "alert alert-danger" })</p>
-            </p>
-            <p class="diachi">
-                @Html.DropDownListFor(model => model.Ward, new SelectList(new List<Object> { }), "Chọn phường/xã", new { @class = "form-select form-select-sm mb-3", id = "ward", name = "ward", style = "margin-right: 0.5cm;" })
-            <p>@Html.ValidationMessageFor(model => model.Ward, "", new { @class = "alert alert-danger" })</p>
-            </p>
+                <p class="diachi">
+                    @Html.DropDownListFor(model => model.City, new SelectList(new List<Object> { }), "Chọn tỉnh/thành phố", new { @class = "form-select form-select-sm mb-3", id = "city", name = "city", style = "margin-right: 0.5cm;" })
+                <p>@Html.ValidationMessageFor(model => model.City, "", new { @class = "alert alert-danger" })</p>
+                </p>
+                <p class="diachi">
+                    @Html.DropDownListFor(model => model.District, new SelectList(new List<Object> { }), "Chọn quận/huyện", new { @class = "form-select form-select-sm mb-3", id = "district", name = "district", style = "margin-right: 0.5cm;" })
+                <p> @Html.ValidationMessageFor(model => model.District, "", new { @class = "alert alert-danger" })</p>
+                </p>
+                <p class="diachi">
+                    @Html.DropDownListFor(model => model.Ward, new SelectList(new List<Object> { }), "Chọn phường/xã", new { @class = "form-select form-select-sm mb-3", id = "ward", name = "ward", style = "margin-right: 0.5cm;" })
+                <p>@Html.ValidationMessageFor(model => model.Ward, "", new { @class = "alert alert-danger" })</p>
+                </p>
 
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
-            <script>
-                var citis = document.getElementById("city");
-                var districts = document.getElementById("district");
-                var wards = document.getElementById("ward");
-                var Parameter = {
-                    url: "https://raw.githubusercontent.com/kenzouno1/DiaGioiHanhChinhVN/master/data.json",
-                    method: "GET",
-                    responseType: "application/json",
-                };
-                var promise = axios(Parameter);
-                promise.then(function (result) {
-                    renderCity(result.data);
-                });
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+                <script>
+                    var citis = document.getElementById("city");
+                    var districts = document.getElementById("district");
+                    var wards = document.getElementById("ward");
+                    var Parameter = {
+                        url: "https://raw.githubusercontent.com/kenzouno1/DiaGioiHanhChinhVN/master/data.json",
+                        method: "GET",
+                        responseType: "application/json",
+                    };
+                    var promise = axios(Parameter);
+                    promise.then(function (result) {
+                        renderCity(result.data);
+                    });
 
-                function renderCity(data) {
-                    for (const x of data) {
-                        citis.options[citis.options.length] = new Option(x.Name, x.Name);
+                    function renderCity(data) {
+                        for (const x of data) {
+                            citis.options[citis.options.length] = new Option(x.Name, x.Name);
+                        }
+                        citis.onchange = function () {
+                            district.length = 1;
+                            ward.length = 1;
+                            if (this.value != "") {
+                                const result = data.filter(n => n.Name === this.value);
+
+                                for (const k of result[0].Districts) {
+                                    district.options[district.options.length] = new Option(k.Name, k.Name);
+                                }
+                            }
+                        };
+                        district.onchange = function () {
+                            ward.length = 1;
+                            const dataCity = data.filter((n) => n.Name === citis.value);
+                            if (this.value != "") {
+                                const dataWards = dataCity[0].Districts.filter(n => n.Name === this.value)[0].Wards;
+
+                                for (const w of dataWards) {
+                                    wards.options[wards.options.length] = new Option(w.Name, w.Name);
+                                }
+                            }
+                        };
                     }
-                    citis.onchange = function () {
-                        district.length = 1;
-                        ward.length = 1;
-                        if (this.value != "") {
-                            const result = data.filter(n => n.Name === this.value);
-
-                            for (const k of result[0].Districts) {
-                                district.options[district.options.length] = new Option(k.Name, k.Name);
-                            }
-                        }
-                    };
-                    district.onchange = function () {
-                        ward.length = 1;
-                        const dataCity = data.filter((n) => n.Name === citis.value);
-                        if (this.value != "") {
-                            const dataWards = dataCity[0].Districts.filter(n => n.Name === this.value)[0].Wards;
-
-                            for (const w of dataWards) {
-                                wards.options[wards.options.length] = new Option(w.Name, w.Name);
-                            }
-                        }
-                    };
-                }
-            </script>*@
+                </script>*@
 
                 @*<button class="btthoat" id="bttcancel">Thoát </button>*@
                 <input type="button" class="btthoat" onclick="history.go(-1)" value="Thoát" />
@@ -145,6 +146,7 @@
             }
         </div>
 
+        </script>
         <script>
             var myInput = document.getElementById("matkhau");
             var letter = document.getElementById("letter");
