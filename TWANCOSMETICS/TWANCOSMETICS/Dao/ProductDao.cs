@@ -97,5 +97,13 @@ namespace TWANCOSMETICS.Dao
             model = model.DistinctBy(x => x.id);
             return model.ToList();
         }
+        public List<ProductViewModel> Search(string keyword,List<ProductViewModel> product)
+        {
+            var model =product.Where(x =>x.status==1 && (x.name.Contains(keyword) || 
+                                    x.Category.Contains(keyword) ||
+                                    x.Brand.Contains(keyword) || 
+                                    x.variant.Contains(keyword)) ).ToList();
+            return model;
+        }
     }
 }
