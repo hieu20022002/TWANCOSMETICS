@@ -62,10 +62,10 @@ namespace TWANCOSMETICS.Controllers
             ViewBag.SortKey = sort;
             return View(model.ToPagedList(page, pageSize));
         }
-        public ActionResult ProductDeatil(/*int id,int? page*/)
+        public ActionResult ProductDetail(int id= 1000000)
         {
-            //var product = new ProductDao().Detail(id);
-            return View(/*product*/);
+            var product = new ProductDao().Detail(1000000);
+            return View(product);
         }
     }
 }

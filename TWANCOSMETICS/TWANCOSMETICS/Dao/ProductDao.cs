@@ -2,7 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
+using System.Reflection;
 using System.Web;
+using System.Xml.Linq;
 using TWANCOSMEICS.Models;
 using TWANCOSMETICS.Models;
 
@@ -26,20 +29,42 @@ namespace TWANCOSMETICS.Dao
         }
         public string Category(int categoryID)
         {
-            var model = DataProvider.Ins.DB.Category.Where(x => x.id == categoryID).Select(x => x.name);
-            return model.ToString();
+            var model = DataProvider.Ins.DB.Category.Where(x => x.id == categoryID);
+            string name=null;
+            foreach (var x in model)
+            {
+                name = x.name;
+            }
+            return name;
         }
         public string Brand(int BrandID)
         {
-            var model = DataProvider.Ins.DB.Brand.Where(x => x.id == BrandID).Select(x => x.name);
-            return model.ToString();
+            var model = DataProvider.Ins.DB.Brand.Where(x => x.id == BrandID);
+            string name = null;
+            foreach (var x in model)
+            {
+                name = x.name;
+            }
+            return name;
         }
         public string Image(int? ImageID)
         {
             var model = DataProvider.Ins.DB.Image.Where(x => x.id == ImageID).Select(x => x.u_image);
             return model.ToString();
         }
-
+        public Dictionary<string,double> Unit (int IdProduct)
+        {
+            Dictionary<string, double> unit= new Dictionary<string, double>();
+            var model = DataProvider.Ins.DB.Inventory.Where(x => x.product_id == IdProduct);
+            model.OrderBy(x => x.price);
+            foreach (var x in model)
+            {
+                unit.Add(x.variant, x.price);
+            }
+            unit = unit.OrderBy(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
+            return unit;
+            
+        }
         public List<ProductViewModel> ListProduct(string sort = "", int cateID = 0, int brandID = 0)
         {
 
@@ -153,46 +178,28 @@ namespace TWANCOSMETICS.Dao
                                     x.variant.Contains(keyword)) ).ToList();
             return listproduct.ToList();
         }
-        public List<ProductViewModel> Detail(int ID)
+        public ProductDetailModel Detail(int ID)
         {
-            var model = DataProvider.Ins.DB.Product.Where(p => p.id == ID).Join(
-                            DataProvider.Ins.DB.Inventory,p => p.id, i => i.product_id, (p,i) =>
-                                new {id=p.id,
-                                     name = p.name,
-                                     description = p.description,
-                                     brand_id=p.brand_id,
-                                     category_id=p.category_id,
-                                     image_id = p.image_id,
-                                     price=i.price,
-                                     ListPrice= ListPrices(ID),
-                                     quantity=i.quantity,
-                                     variant=i.variant,
-                                     date_created=i.date_created,
-                                     date_updated = i.date_updated,
-                                     status=p.status,
-                                     delete_flag=p.delete_flag });
+            var productimage = DataProvider.Ins.DB.Product.Where(p =>p.id==ID).Join(DataProvider.Ins.DB.Image,
+                   p => p.image_id, i => i.id, (p, i) =>
+                   new { p, u_image = i.u_image });
+
+            ProductDetailModel product=new ProductDetailModel();
+            foreach (var x in productimage)
+            {
+                product.id = x.p.id;
+                product.name = x.p.name;
+                product.description = x.p.description;
+                product.Brand = Brand(x.p.brand_id);
+                product.Category = Category(x.p.category_id);
+                product.u_image = x.u_image;
+                product.status = x.p.status;
+                product.amount = 0;
+                product.Unit = Unit(x.p.id);
+            }
+
             
-            var product = model.Join(DataProvider.Ins.DB.Image,
-                   m => m.image_id, i => i.id, (m, i) =>
-                   new { m, u_image = i.u_image }).AsEnumerable().Select(
-                        p => new ProductViewModel()
-                        {
-                            id=p.m.id,
-                            name = p.m.name,
-                            description = p.m.description,
-                            Brand = Brand(p.m.brand_id),
-                            Category = Category(p.m.category_id),
-                            price = p.m.price,
-                            u_image = p.u_image,
-                            quantity = p.m.quantity,
-                            ListPrice=p.m.ListPrice,
-                            variant = p.m.variant,
-                            date_created = p.m.date_created,
-                            date_updated = p.m.date_updated,
-                            status = p.m.status,
-                            delete_flag = p.m.delete_flag
-                        });
-            return product.ToList();
+            return product;
         } 
     }
 }

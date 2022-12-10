@@ -21,7 +21,7 @@ namespace TWANCOSMETICS
             );
             routes.MapRoute(
               name: "Product Detail",
-              url: "chi-tiet/{name}-{id}",
+              url: "chi-tiet/{id}",
               defaults: new { controller = "Product", action = "ProductDetail", id = UrlParameter.Optional },
               namespaces: new[] { "TWANCOSMETICS.Controllers" }
             );

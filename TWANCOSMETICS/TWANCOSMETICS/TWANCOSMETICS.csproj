@@ -181,6 +181,7 @@
     <Compile Include="Models\Product.cs">
       <DependentUpon>TWANDBContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ProductDetailModel.cs" />
     <Compile Include="Models\ProductViewModel.cs" />
     <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Models\Role.cs">
@@ -347,9 +348,9 @@
     <Content Include="Views\Product\CategoryList.cshtml" />
     <Content Include="Views\Product\BrandList.cshtml" />
     <Content Include="Views\Product\Search.cshtml" />
-    <Content Include="Views\Product\ProductDeatil.cshtml" />
     <Content Include="Views\Shared\NavigationMenu.cshtml" />
     <Content Include="Views\Shared\Footer.cshtml" />
+    <Content Include="Views\Product\ProductDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
