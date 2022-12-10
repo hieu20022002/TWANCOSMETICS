@@ -50,11 +50,22 @@ namespace TWANCOSMETICS.Controllers
 
             return View(model);
         }
-        public ActionResult Search(List<ProductViewModel> product,int page = 1, int pageSize = 5, string keyword="")
-        {
-            var model = new ProductDao().Search(keyword,product);
 
+
+        public ActionResult Search(int page = 1, int pageSize = 5, string keyword="", int cateID = 0, int brandID = 0, string sort = "")
+        {
+            Session["cateID"] = cateID;
+            Session["brandID"] = brandID;
+            var model = new ProductDao().Search(keyword);
+            ViewBag.Keyword=keyword;
+            ViewBag.Total=model.Count();
+            ViewBag.SortKey = sort;
             return View(model.ToPagedList(page, pageSize));
+        }
+        public ActionResult ProductDeatil(/*int id,int? page*/)
+        {
+            //var product = new ProductDao().Detail(id);
+            return View(/*product*/);
         }
     }
 }

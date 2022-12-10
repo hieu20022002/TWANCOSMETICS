@@ -12,5 +12,6 @@ namespace TWANCOSMETICS.Controllers
         {
             return View();
         }
+
     }
 }

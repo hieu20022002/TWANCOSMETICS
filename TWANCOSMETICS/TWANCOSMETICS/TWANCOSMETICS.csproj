@@ -222,7 +222,18 @@
     <Content Include="Images\Banner\Banner 1.png" />
     <Content Include="Images\Banner\Banner 2.png" />
     <Content Include="Images\Banner\Banner 3.png" />
+    <Content Include="Images\Images .svg\Banner\Banner2.svg" />
+    <Content Include="Images\Images .svg\Banner\Flashsale_Banner3.svg" />
+    <Content Include="Images\Images .svg\Banner\Welcome_Banner1.svg" />
+    <Content Include="Images\Images .svg\Logo\Logo.svg" />
+    <Content Include="Images\Images .svg\Voucher\Voucher120K.svg" />
+    <Content Include="Images\Images .svg\Voucher\Voucher20_.svg" />
+    <Content Include="Images\Images .svg\Voucher\Voucher30K.svg" />
+    <Content Include="Images\Images .svg\Voucher\Voucher60K.svg" />
     <Content Include="Images\Logo.svg" />
+    <Content Include="Images\Logo\Logo_Admin.svg" />
+    <Content Include="Images\Logo\T W A N %281%29.png" />
+    <Content Include="Images\Logo\T_W_A_N-removebg-preview.png" />
     <Content Include="Images\Nền Đăng Nhập_Đăng kí.png" />
     <Content Include="Images\Posters\Banner1.png" />
     <Content Include="Images\Posters\Banner2.png" />
@@ -299,6 +310,7 @@
       <DependentUpon>TWANDBContext.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\HomeController.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -312,6 +324,8 @@
     <Content Include="Styles\Css\HomePage.css" />
     <Content Include="Styles\Css\InfoManagement.css" />
     <Content Include="Styles\Css\Login.css" />
+    <Content Include="Styles\Css\NavigationMenu.css" />
+    <Content Include="Styles\Css\ProductDetail.css" />
     <Content Include="Styles\Css\ProductsPage.css" />
     <Content Include="Styles\Css\Register.css" />
     <Content Include="Web.config" />
@@ -332,6 +346,10 @@
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Product\CategoryList.cshtml" />
     <Content Include="Views\Product\BrandList.cshtml" />
+    <Content Include="Views\Product\Search.cshtml" />
+    <Content Include="Views\Product\ProductDeatil.cshtml" />
+    <Content Include="Views\Shared\NavigationMenu.cshtml" />
+    <Content Include="Views\Shared\Footer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
