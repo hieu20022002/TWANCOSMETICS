@@ -18,7 +18,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Tất cả sản phẩm</title>
-    @Styles.Render("~/Styles/Css/ProductsPage.css")
+    <link href="~/Styles/Css/ProductsPage.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Pacifico&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -36,18 +36,69 @@
 <body>
 
     <div class="frame">
-        @Html.ActionLink("Trang chủ", "Index", "Home")/@Html.ActionLink("Sản phẩm", "Index", "Product")
+        @Html.ActionLink("Trang chủ", "Index", "Home") / @Html.ActionLink("Sản phẩm", "Index", "Product")
     </div>
     <div class="sapxep">
-        Sắp xếp theo
+        
+        <style>
+            /* Style The Dropdown Button */
+            .dropbtn {
+                background-color: #E0BBE4;
+                color: white;
+                padding: 13px;
+                font-size: 11px;
+                border: none;
+                cursor: pointer;
+            }
 
-        <li class="dropdown">
-            <ul class="dropdown-menu">
-                <li>@Html.ActionLink("Giá: Thấp đến cao", "Index", "Product", new { sort = "price_asc", cateID = CategoryID, brandID = BrandID }, null)</li>
+            /* The container <div> - needed to position the dropdown content */
+            .dropdown {
+                position: relative;
+                display: inline-block;
+            }
 
-                <li>@Html.ActionLink("Giá: Cao đến thấp", "Index", "Product", new { sort = "price_des", cateID = CategoryID, brandID = BrandID }, null)</li>
-            </ul>
-        </li>
+            /* Dropdown Content (Hidden by Default) */
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: #f9f9f9;
+                min-width: 160px;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                z-index: 1;
+            }
+
+                /* Links inside the dropdown */
+                .dropdown-content a {
+                    color: black;
+                    padding: 12px 16px;
+                    text-decoration: none;
+                    display: block;
+                }
+
+                    /* Change color of dropdown links on hover */
+                    .dropdown-content a:hover {
+                        background-color: #f1f1f1
+                    }
+
+            /* Show the dropdown menu on hover */
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+
+            /* Change the background color of the dropdown button when the dropdown content is shown */
+            .dropdown:hover .dropbtn {
+                background-color: #3e8e41;
+            }
+        </style>
+        <div class="dropdown">
+            <p class="dropbtn">Sắp xếp theo</p>
+            <div class="dropdown-content">
+                @Html.ActionLink("Giá: Thấp đến cao", "Index", "Product", new { sort = "price_asc", cateID = CategoryID, brandID = BrandID }, null)
+
+                @Html.ActionLink("Giá: Cao đến thấp", "Index", "Product", new { sort = "price_des", cateID = CategoryID, brandID = BrandID }, null)
+            </div>
+        </div>
+
     </div>
     <section class="row">
         <div class="column left">
@@ -56,14 +107,7 @@
                 <h3><span class="material-symbols-outlined" id="filter">filter_alt</span><u>Bộ lọc tìm kiếm</u></h3>
             </div>
             @Html.Action("BrandList", "Product")
-            @*<div>
-            <h3>Giá</h3>
-            <div>
-                <input type="text" placeholder="TỪ" class="khoanggia" /><span> - </span>
-                <input type="text" placeholder="ĐẾN" class="khoanggia" />
-            </div>
-            <button class="button-apdung">ÁP DỤNG</button>
-        </div>*@
+
 
         </div>
         <div class="column right">
@@ -93,89 +137,99 @@
 
                 }
 
-                @*<div>
-                        <img src="..\Images\Products\Paula_s Choices\kem_dưỡng_ẩm_giàu_chất_điện_giải-removebg-preview.png" class="image-product" />
-                        <p class="name-product">
-                            Kem dưỡng ẩm giàu chất điện giải water - Infusing Electrolyte Moisturizer (fullsize)
-                        </p>
-                        <p class="price-product">892.500 đ</p>
-                    </div>
-                    <div>
-                        <img src="..\Images\Products\Paula_s Choices\kem_dưỡng_ẩm_giàu_chất_điện_giải-removebg-preview.png" class="image-product" />
-                        <p class="name-product">
-                            Kem dưỡng ẩm giàu chất điện giải water - Infusing Electrolyte Moisturizer (fullsize)
-                        </p>
-                        <p class="price-product">892.500 đ</p>
-                    </div>
-                    <div>
-                        <img src="..\Images\Products\Paula_s Choices\kem_dưỡng_ẩm_giàu_chất_điện_giải-removebg-preview.png" class="image-product" />
-                        <p class="name-product">
-                            Kem dưỡng ẩm giàu chất điện giải water - Infusing Electrolyte Moisturizer (fullsize)
-                        </p>
-                        <p class="price-product">892.500 đ</p>
-                    </div>
-                    <div>
-                        <img src="..\Images\Products\Paula_s Choices\kem_dưỡng_ẩm_giàu_chất_điện_giải-removebg-preview.png" class="image-product" />
-                        <p class="name-product">
-                            Kem dưỡng ẩm giàu chất điện giải water - Infusing Electrolyte Moisturizer (fullsize)
-                        </p>
-                        <p class="price-product">892.500 đ</p>
-                    </div>*@
+
             </div>
         </div>
     </section>
-    
-    <div class="pagination" >
+
+    <div class="pagination">
         @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
         @Html.PagedListPager(Model, page => Url.Action("Index", new { page, sort = ViewBag.SortKey }))
     </div>
-    @*@if (ViewBag.TotalPage > 1)
-        {
-            var pageDisplay = (int)ViewBag.MaxPage;
-            int totalPage = (int)ViewBag.TotalPage;
-            int currentPage = ((int)ViewBag.Page);
-            var startPageIndex = Math.Max(1, currentPage - pageDisplay / 2);
-            var endPageIndex = Math.Min(totalPage, currentPage + pageDisplay / 2);
 
-            <div class="pagination">
-                <ul class="pagination">
-
-                    @if (currentPage > ViewBag.First)
-                    {
-                        <li><a href="?page=@ViewBag.First&sort=@ViewBag.SortKey" title="Trang đầu" class="first"><i class="fa fa-angle-double-left"></i></a></li>
-                        <li>
-                            <a href="?page=@ViewBag.Prev&sort=@ViewBag.SortKey" title="Trang trước" class="prev"><i class="fa fa-angle-left"></i></a>
-                        </li>
-                    }
-                    @for (int i = startPageIndex; i <= endPageIndex; i++)
-                    {
-                        if (currentPage == i)
-                        {
-                            <li> <a href="?page=@i&sort=@ViewBag.SortKey" class="active" title="Trang @i">@i</a></li>
-
-                        }
-                        else
-                        {
-                            <li><a href="?page=@i&sort=@ViewBag.SortKey" title="Trang @i" class="pos">@i</a></li>
-                        }
-                    }
-                   @if (currentPage < totalPage)
-                    {
-                    <li><a href="?page=@ViewBag.Next&sort=@ViewBag.SortKey" class="next" title="Trang sau"><i class="fa fa-angle-right"></i></a></li>
-                    <li> <a href="?page=@ViewBag.Last&sort=@ViewBag.SortKey" class="last" title="Trang cuối"><i class="fa fa-angle-double-right"></i></a></li>
-                    }
-
-                </ul>
-            </div>
-        }*@
-    @*<div class="pagination">
-
-            <a href="#">❮</a>
-            <a href="#" class="active">1</a>
-            <a href="#">2</a>
-            <a href="#">3</a>
-            <a href="#">4</a>
-            <a href="#">❯</a>
-        </div>*@
+</body>
 </html>
+@*<div>
+        <h3>Giá</h3>
+        <div>
+            <input type="text" placeholder="TỪ" class="khoanggia" /><span> - </span>
+            <input type="text" placeholder="ĐẾN" class="khoanggia" />
+        </div>
+        <button class="button-apdung">ÁP DỤNG</button>
+    </div>*@
+@*<div>
+        <img src="..\Images\Products\Paula_s Choices\kem_dưỡng_ẩm_giàu_chất_điện_giải-removebg-preview.png" class="image-product" />
+        <p class="name-product">
+            Kem dưỡng ẩm giàu chất điện giải water - Infusing Electrolyte Moisturizer (fullsize)
+        </p>
+        <p class="price-product">892.500 đ</p>
+    </div>
+    <div>
+        <img src="..\Images\Products\Paula_s Choices\kem_dưỡng_ẩm_giàu_chất_điện_giải-removebg-preview.png" class="image-product" />
+        <p class="name-product">
+            Kem dưỡng ẩm giàu chất điện giải water - Infusing Electrolyte Moisturizer (fullsize)
+        </p>
+        <p class="price-product">892.500 đ</p>
+    </div>
+    <div>
+        <img src="..\Images\Products\Paula_s Choices\kem_dưỡng_ẩm_giàu_chất_điện_giải-removebg-preview.png" class="image-product" />
+        <p class="name-product">
+            Kem dưỡng ẩm giàu chất điện giải water - Infusing Electrolyte Moisturizer (fullsize)
+        </p>
+        <p class="price-product">892.500 đ</p>
+    </div>
+    <div>
+        <img src="..\Images\Products\Paula_s Choices\kem_dưỡng_ẩm_giàu_chất_điện_giải-removebg-preview.png" class="image-product" />
+        <p class="name-product">
+            Kem dưỡng ẩm giàu chất điện giải water - Infusing Electrolyte Moisturizer (fullsize)
+        </p>
+        <p class="price-product">892.500 đ</p>
+    </div>*@
+@*@if (ViewBag.TotalPage > 1)
+    {
+        var pageDisplay = (int)ViewBag.MaxPage;
+        int totalPage = (int)ViewBag.TotalPage;
+        int currentPage = ((int)ViewBag.Page);
+        var startPageIndex = Math.Max(1, currentPage - pageDisplay / 2);
+        var endPageIndex = Math.Min(totalPage, currentPage + pageDisplay / 2);
 
+        <div class="pagination">
+            <ul class="pagination">
+
+                @if (currentPage > ViewBag.First)
+                {
+                    <li><a href="?page=@ViewBag.First&sort=@ViewBag.SortKey" title="Trang đầu" class="first"><i class="fa fa-angle-double-left"></i></a></li>
+                    <li>
+                        <a href="?page=@ViewBag.Prev&sort=@ViewBag.SortKey" title="Trang trước" class="prev"><i class="fa fa-angle-left"></i></a>
+                    </li>
+                }
+                @for (int i = startPageIndex; i <= endPageIndex; i++)
+                {
+                    if (currentPage == i)
+                    {
+                        <li> <a href="?page=@i&sort=@ViewBag.SortKey" class="active" title="Trang @i">@i</a></li>
+
+                    }
+                    else
+                    {
+                        <li><a href="?page=@i&sort=@ViewBag.SortKey" title="Trang @i" class="pos">@i</a></li>
+                    }
+                }
+               @if (currentPage < totalPage)
+                {
+                <li><a href="?page=@ViewBag.Next&sort=@ViewBag.SortKey" class="next" title="Trang sau"><i class="fa fa-angle-right"></i></a></li>
+                <li> <a href="?page=@ViewBag.Last&sort=@ViewBag.SortKey" class="last" title="Trang cuối"><i class="fa fa-angle-double-right"></i></a></li>
+                }
+
+            </ul>
+        </div>
+    }*@
+@*<div class="pagination">
+
+        <a href="#">❮</a>
+        <a href="#" class="active">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#">❯</a>
+    </div>*@

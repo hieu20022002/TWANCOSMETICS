@@ -17,7 +17,10 @@
 
 <body>
     @RenderPage("~/Views/Shared/NavigationMenu.cshtml")
-    @RenderBody()
+    <div>
+        @RenderBody()
+    </div>
+    
     <img class="logo2" src="../Images/Logo.svg">
     @RenderPage("~/Views/Shared/Footer.cshtml")
 </body>
