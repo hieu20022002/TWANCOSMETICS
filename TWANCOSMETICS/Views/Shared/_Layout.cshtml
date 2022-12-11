@@ -17,11 +17,11 @@
     @Styles.Render("~/Styles/Css/HomePage.css")
 </head>
 <body>
-    <header>
+    <header data-spy="affix" style="background-color:white">
         @{
             var u = Session["Account"] as TWANCOSMETICS.Models.User;
         }
-        <img class="logo" src="../Images/Logo.svg">
+        <img class="logo" src="../Images/Logo/Logo.svg">
         <div class="heading1">
             CỬA HÀNG TRỰC TUYẾN 24/7 - GIAO HÀNG NHANH CHÓNG
         </div>
@@ -39,17 +39,17 @@
                 if (u != null)
                 {
                     <div class="accountBtn">
-                                    <button class="material-symbols-outlined" name="loginBtn" id="icon">
-                                        account_circle
-                                                    <div class="dropdown-content" id="content">
-                                                        @Html.ActionLink("Thay đổi thông tin", "InfoManagement", "Account")
-                                                        <a href="#">Đơn hàng</a>
-                                                        @Html.ActionLink("Đăng xuất", "Logout", "Account")
-                                                    </div>
-                                    </button>
+                        <button class="material-symbols-outlined" name="loginBtn" id="icon">
+                            account_circle
+                            <div class="dropdown-content" id="content">
+                                @Html.ActionLink("Thay đổi thông tin", "InfoManagement", "Account")
+                                <a href="#">Đơn hàng</a>
+                                @Html.ActionLink("Đăng xuất", "Logout", "Account")
+                            </div>
+                        </button>
                     </div>
-                   
-                    
+
+
                 }
                 else
                 {
@@ -64,10 +64,10 @@
             }*@
 
             @*<button class="material-symbols-outlined" id="icon">
-                    account_circle
-                </button>*@
+                account_circle
+            </button>*@
         </div>
-        <div class="nav">
+        <nav>
             <ul>
                 <li>@Html.ActionLink("Trang chủ", "Index", "Home")</li>
                 <li>
@@ -77,9 +77,9 @@
                 <li><a href="#kienthuc">Kiến thức chăm sóc da</a></li>
                 <li><a href="#lienhe">Liên hệ </a></li>
             </ul>
-        </div>
+        </nav>
     </header>
-    <div class="container body-content">
+    <div>
         @RenderBody()
         <img class="logo2" src="../Images/Logo.svg">
         <footer>

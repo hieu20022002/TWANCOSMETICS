@@ -33,19 +33,33 @@
 #content {
     font-size: 1vw;
 }
+:root {
+    --purple: #E0BBE4;
+    --pink: #FF9AA2;
+    --grey: #909497;
+}
 
 body {
     font-family: 'Inter', sans-serif;
     margin: 0;
-    border: 2px solid #909497;
 }
 
 * {
     box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
 }
 
+.affix {
+    top: 0;
+    width: 100%;
+    z-index: 9999 !important;
+}
+
+    .affix + .container-fluid {
+        padding-top: 70px;
+    }
+
 .heading1 {
-    position: center;
     display: flex;
     color: white;
     background-color: #E0BBE4;
@@ -53,60 +67,60 @@ body {
     align-content: center;
     width: 100%;
     height: auto;
-    font-size: 1.5vw;
+    font-size: 1.2vw;
 }
 
 .logo {
     position: absolute;
     float: left;
-    width: 20vw;
-    height: 15vw;
+    width: 15vw;
+    height: 10vw;
     margin-left: 0;
 }
 
 .thanhtimkiem {
-    margin-left: 18%;
-    margin-top: 4%;
+    margin-left: 12%;
+    margin-top: 3.5vw;
     width: 65%;
     position: absolute;
     background-color: white;
-    border-radius: 150px;
-    border: 2px solid #000000;
+    border-radius: 50vw;
 }
 
 .timkiemsp {
     float: left;
     width: 100%;
     background: #FDFEFE;
-    border: none;
-    border-radius: 150px;
+    border-radius: 50vw;
     font-style: italic;
-    height: 2.5vw;
-    font-size: 1.2vw;
+    height: 2.2vw;
+    font-size: 1vw;
 }
 
 #icon {
     color: black;
-    font-size: 3vw;
+    font-size: 2.5vw;
     font-weight: bolder;
     padding: 0;
+    margin-right: 1vw;
 }
 
 .icon2 {
-    margin-top: 4%;
-    margin-right: 6vw;
+    margin-top: 3.5vw;
+    margin-right: 10vw;
     float: right;
 }
 
 #icon-search {
     display: flex;
-    align-content: center;
     color: black;
-    font-size: 2.3vw;
+    font-size: 1.8vw;
     font-weight: bolder;
     position: absolute;
-    right: 0%;
-    border-radius: 160px;
+    right: 0.5vw;
+    top: 2px;
+    bottom: 2px;
+    border-radius: 50vw;
 }
 
 button {
@@ -118,39 +132,48 @@ button {
     color: black;
 }
 
-.nav {
-    overflow: hidden;
-    margin-top: 10%;
-    margin-left: 3%;
-    position: static;
+nav {
+    margin-top: 7%;
+    margin-left: 4vw;
+    font-size: 1.5vw;
+    margin-bottom: 2vw;
 }
 
-    .nav ul {
-    }
+a {
+    text-decoration: none;
+    color: var(--purple);
+}
 
-    .nav li {
-        float: left;
-        display: block;
-        padding-right: 6%;
-    }
+nav li {
+    float: left;
+    display: block;
+    padding: 1vw 4vw 1vw 4vw;
+}
 
-    .nav a {
-        display: block;
-        font-weight: bolder;
-        text-decoration: none;
-        color: black;
-        font-size: 1.8vw;
-        padding: 1.2vw 1.2vw;
-        margin: auto;
-    }
+nav a {
+    display: block;
+    font-weight: bolder;
+    text-decoration: none;
+    color: black;
+    font-size: 1.5vw;
+}
 
-        .nav a:hover {
-            background-color: #E0BBE4;
-        }
+li a:hover:not(.active) {
+    background-color: var(--purple);
+    color: white;
+    text-decoration: none;
+}
 
-        .nav a:active {
-            background-color: #E0BBE4;
-        }
+li a.active {
+    color: var(--purple);
+    text-decoration: none;
+}
+
+li a:focus {
+    background-color: white;
+    color: var(--purple);
+    text-decoration: none;
+}
 
 img {
     width: 110vw;
@@ -164,59 +187,24 @@ img {
 }
 
 .container {
-    position: relative;
-    margin-top: 1vw;
-}
-
-.slide {
-    max-width: 100%;
-}
-
-.slide-2, .slide-3 {
-    display: none;
-}
-
-.btn-change {
-    position: absolute;
-    top: 20vw;
-}
-
-    .btn-change i {
-        position: absolute;
-        top: 40%;
-        left: 0%;
-    }
-
-.btn-change-left {
-    left: 95vw;
-    font-size: 3vw;
-    margin-right: 0;
-}
-
-.btn-change-right {
-    left: 1vw;
-    font-size: 3vw;
-}
-
-.button-poster {
-    position: absolute;
-    top: 30vw;
-    left: 42vw;
-    background-color: #FF9AA2;
-    padding: 1vw;
-    border-radius: 50px;
-    color: white;
+    margin-top: 14vw;
+    margin-left: 8vw;
+    margin-right: 8vw;
+    width: 85%;
+    padding: 0;
 }
 
 h1 {
     text-align: center;
     font-weight: 900;
-    font-size: 3vw;
+    font-size: 2.5vw;
+    color: #000000;
 }
 
 .frame2 {
-    margin-top: 46vw;
     position: relative;
+    margin-left: 8vw;
+    margin-right: 8vw;
 }
 
 .flex-container {
@@ -247,9 +235,16 @@ h1 {
     text-align: center;
     align-items: center;
     display: flex;
-    width: 15vw;
-    font-weight: bold;
-    font-size: 1.5vw;
+    width: 14vw;
+    font-weight: 900;
+    font-size: 1.2vw;
+}
+
+pre {
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
 }
 
 .cost-product {
@@ -258,51 +253,58 @@ h1 {
     position: absolute;
     text-align: center;
     align-items: center;
-    width: 15vw;
+    width: 14vw;
     font-weight: bolder;
-    font-size: 1.5vw;
+    font-size: 1.4vw;
+}
+
+hr {
+    border: 1px solid var(--grey)
 }
 
 .frame3 {
     margin-top: 10vw;
     position: static;
     padding-bottom: 2vw;
+    margin-left: 8vw;
+    margin-right: 8vw;
 }
 
 .frame3-1 {
     float: left;
-    width: 50vw;
-    height: 55vw;
+    width: 40vw;
+    height: 40vw;
     padding-left: 2vw;
     padding-right: 2vw;
     position: sticky;
+    margin-top: 1vw;
 }
 
 .frame3-2 {
-    width: 26vw;
-    height: 28vw;
-    padding-left: 3vw;
+    width: 22vw;
+    height: 22vw;
+    margin-left: 1vw;
     position: relative;
-    padding-right: 3vw;
+    padding-right: 2vw;
+    margin-top: 1vw;
 }
 
 .frame3-3 {
     float: right;
-    width: 20vw;
-    height: 25vw;
+    width: 18vw;
+    height: 21vw;
     margin-top: 10vw;
-    position: static;
-    margin-right: 2vw;
 }
 
 .button1 {
     padding: 1vw;
-    margin: 3vw;
-    width: 20vw;
+    margin: 2vw;
+    width: 16vw;
     position: relative;
     background-color: #FF9AA2;
     border-radius: 50px;
     color: white;
+    font-size: 1.5vw;
 }
 
 #icon-arrow {
@@ -311,29 +313,28 @@ h1 {
 }
 
 .frame3-4 {
-    width: 24vw;
+    width: 20vw;
     height: 22vw;
     padding: 0vw;
-    margin-left: -6vw;
-    margin-top: 0vw;
+    margin-left: -5vw;
+    margin-top: 1vw;
     position: absolute;
 }
 
 .frame3-text {
+    margin-top: 1vw;
     position: static;
-    margin-left: 70vw;
+    margin-left: 58vw;
     padding-right: 1vw;
-    width: 28vw;
+    width: 27vw;
     font-weight: bold;
     font-size: 1.2vw;
 }
 
-.blog {
-    margin-top: 2vw;
+section {
     position: static;
     padding-bottom: 2vw;
-    width: 100%;
-    margin-right: 0px;
+    margin:2vw 8vw;
 }
 
 .flex-container2 {
@@ -343,29 +344,30 @@ h1 {
 
     .flex-container2 > div {
         display: flex;
-        padding-left: 3vw;
+        padding-right: 4vw;
         align-items: center;
         justify-content: space-around;
         align-content: space-around;
     }
 
 .image-blog {
-    width: 24vw;
-    height: 25vw;
+    width: 18vw;
+    height: 21vw;
 }
 
 h6 {
-    font-weight: bolder;
-    font-size: 1.2vw;
-    width: 18vw;
+    font-weight: 900;
+    font-size: 1vw;
+    width: 19vw;
     position: sticky;
-    margin: 0;
+    margin-bottom: 0.5vw;
+    color: #000000;
 }
 
 article {
     margin-left: 2vw;
     width: 19vw;
-    font-size: 1.4vw;
+    font-size: 1.2vw;
     padding-top: 0;
 }
 
@@ -385,6 +387,7 @@ footer {
     padding-left: 2%;
     padding-right: 2%;
     margin-bottom: 0;
+
 }
 
 .nav2 {
@@ -425,10 +428,13 @@ footer {
     display: flex;
     align-content: space-around;
     justify-content: space-around;
-    padding-top: 5%;
-    padding-bottom: 5%;
+    text-align:center;
+    padding-top:2vw;
+    padding-bottom: 2vw;
     font-size: 1vw;
+    font-weight:900;
     position: relative;
     margin-bottom: 0;
     margin-right: 0;
+    color: #000000;
 }
