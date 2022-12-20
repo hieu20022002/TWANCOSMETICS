@@ -134,6 +134,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\StaticController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UserController.cs" />
+    <Compile Include="Areas\Admin\Models\Login.cs" />
+    <Compile Include="Areas\Admin\Models\UserModel.cs" />
     <Compile Include="Code\DataProvider.cs" />
     <Compile Include="Code\StringHelper.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -223,6 +228,7 @@
     <Content Include="Images\Banner\Banner 1.png" />
     <Content Include="Images\Banner\Banner 2.png" />
     <Content Include="Images\Banner\Banner 3.png" />
+    <Content Include="Images\icons\favicon.ico" />
     <Content Include="Images\Images .svg\Banner\Banner2.svg" />
     <Content Include="Images\Images .svg\Banner\Flashsale_Banner3.svg" />
     <Content Include="Images\Images .svg\Banner\Welcome_Banner1.svg" />
@@ -231,6 +237,7 @@
     <Content Include="Images\Images .svg\Voucher\Voucher20_.svg" />
     <Content Include="Images\Images .svg\Voucher\Voucher30K.svg" />
     <Content Include="Images\Images .svg\Voucher\Voucher60K.svg" />
+    <Content Include="Images\img-01.png" />
     <Content Include="Images\Logo.svg" />
     <Content Include="Images\Logo\Logo_Admin.svg" />
     <Content Include="Images\Logo\T W A N %281%29.png" />
@@ -310,6 +317,9 @@
     <Content Include="Models\TWANDBContext.edmx.diagram">
       <DependentUpon>TWANDBContext.edmx</DependentUpon>
     </Content>
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Static\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Login.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\HomeController.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -322,13 +332,16 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Styles\Css\AdminStatics.css" />
     <Content Include="Styles\Css\HomePage.css" />
     <Content Include="Styles\Css\InfoManagement.css" />
     <Content Include="Styles\Css\Login.css" />
+    <Content Include="Styles\Css\main.css" />
     <Content Include="Styles\Css\NavigationMenu.css" />
     <Content Include="Styles\Css\ProductDetail.css" />
     <Content Include="Styles\Css\ProductsPage.css" />
     <Content Include="Styles\Css\Register.css" />
+    <Content Include="Styles\Css\util.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -354,6 +367,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -4,15 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace TWANCOSMETICS.Controllers
+namespace TWANCOSMETICS.Areas.Admin.Controllers
 {
-    public class HomeController : Controller
+    public class StaticController : Controller
     {
+        // GET: Admin/Static
         public ActionResult Index()
         {
             return View();
         }
-
-
     }
 }

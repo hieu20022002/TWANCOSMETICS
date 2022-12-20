@@ -114,14 +114,15 @@
             <div class="grid-container" id="grid-container">
                 @foreach (var item in Model)
                 {
-                    var link = "/chi-tiet/" + item.name + "-" + item.id;
+
                     if (item.quantity > 0)
                     {
 
-
+                        var link = "/chi-tiet/"+item.id;
                         <div>
-                            <a href="#"><img src=@item.u_image class="image-product" /></a>
-                            <p>@item.name </p>
+                            
+                            <a href="@link"><img src=@item.u_image class="image-product" /></a>
+                            <p> <a href=@link>@item.name</a>@*@Html.ActionLink(item.name, "ProductDetail", "Product",new { id = item.id},null)*@</p>
                             @{if (item.ListPrice.Count() > 1)
                                 {
                                     <p class="price-product" id="price-product">@item.ListPrice[0].ToString("c0") ~ @item.ListPrice[item.ListPrice.Count() - 1].ToString("c0") </p>

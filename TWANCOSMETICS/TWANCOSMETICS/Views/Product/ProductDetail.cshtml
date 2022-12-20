@@ -3,6 +3,7 @@
     ViewBag.Title = "ProductDetail";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 @model TWANCOSMETICS.Models.ProductDetailModel
 
 
@@ -14,8 +15,8 @@
     <title> Chi tiết sản phẩm</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    @Styles.Render("~/Styles/Css/ProductDetail.css")
 
+    @Styles.Render("~/Styles/Css/ProductDetail.css")
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Pacifico&display=swap" rel="stylesheet">
@@ -42,39 +43,49 @@
             </div>
             <!-- Thumbnail images -->
             @*<div class="row">
-                <div class="column">
-                    <img class="demo cursor" src="@Model.u_image" style="width:100%" onclick="currentSlide(1)" alt="The Woods">
-                </div>
+                    <div class="column">
+                        <img class="demo cursor" src="@Model.u_image" style="width:100%" onclick="currentSlide(1)" alt="The Woods">
+                    </div>
 
-            </div>*@
+                </div>*@
         </div>
         <div>
             <h2>@Model.name</h2>
-            @{
-                if (Model.Unit.Count() == 1)
-                {
-                    <div class="giatien">
-                        <span>@Model.Unit.ElementAt(0).Value.ToString("c0")</span>
-                    </div>
-                }
-                else
-                {
-                    <div class="giatien">
-                        <span>@Model.Unit.ElementAt(0).Value.ToString("c0")</span> - <span>@Model.Unit.ElementAt(Model.Unit.Count()-1).Value.ToString("c0")</span>
-                    </div>
-                }
+            @*@{
+            if (Model.Unit.Count() == 1)
+            {
+                <div class="giatien">
+                    <span >@Model.Unit.ElementAt(0).Value.ToString("c0")</span>
+                </div>
             }
+            else
+            {
+                <div class="giatien">
+                    <span>@Model.Unit.ElementAt(0).Value.ToString("c0")</span> - <span>@Model.Unit.ElementAt(Model.Unit.Count() - 1).Value.ToString("c0")</span>
+                </div>
+            }
+        }*@
+        <div class="giatien">
+            <span id="price">@Model.Unit.ElementAt(0).Value.ToString()</span><span> ₫</span>
+        </div>
 
-            <div>
-                
-                <label>Loại</label>
-                @Html.DropDownList("Loai", new SelectList(Model.Unit.Keys), "Chọn một tùy chọn")
+        <div>
+            <label>Loại</label>
+            <select id="Loai" onchange="genderChanged(this)">
+                @foreach (var variant in Model.Unit)
+                {
+                    <option value=@variant.Value.ToString("c0")>@variant.Key.ToString()</option>
+
+                }
+            </select>
+                @*@Html.DropDownList("Loai", new SelectList(Model.Unit.Keys), new { onchange = "genderChanged(this)" })*@
+
                 @*<select>
-                    <option>Chọn một tùy chọn</option>
-                    <option>30ml</option>
-                    <option>100ml</option>
-                </select>*@
-            </div>
+                <option>Chọn một tùy chọn</option>
+                <option>30ml</option>
+                <option>100ml</option>
+            </select>*@
+        </div>
             <div class="buttons_added">
                 <input class="minus is-form" type="button" value="-">
                 <input aria-label="quantity" class="input-quantity" max="999" min="1" name="" type="number" value="">
@@ -112,90 +123,97 @@
             <div class="thongtinsp">
                 <h3> Thông tin sản phẩm</h3>
                 <p>
-                   @Model.description
+
                 </p>
                 <pre>
-Công dụng
-    • Làm thoáng lỗ chân lông
-    • Giảm nhanh tình trạng mụn
-    • Kiểm soát lượng dầu thừa, ngăn ngừa mụn ẩn hình thành
-    • Cấp ẩm cho da, giúp làm da luôn rạng rỡ, căng bóng và mịn màng.
-      </pre>
+                    @Model.description
+                </pre>
 
             </div>
         </div>
-        <div class="goiy">
-            <h3>Gợi ý cho bạn</h3>
-            <div>
-                <img src="~/Images/Products/Paula_s Choices/kem_dưỡng_ẩm_giàu_chất_điện_giải-removebg-preview.png" class="image-goiy" />
-                <a href="#">
-                    <p class="name-product">
-                        Kem dưỡng ẩm giàu chất điện giải water - Infusing Electrolyte Moisturizer (fullsize)
-                    </p>
-                </a>
-            </div>
-            <div>
-                <img src="~/Images/Products/Paula_s Choices/kem_dưỡng_ẩm_giàu_chất_điện_giải-removebg-preview.png" class="image-goiy" />
-                <a href="#">
-                    <p class="name-product">
-                        Kem dưỡng ẩm giàu chất điện giải water - Infusing Electrolyte Moisturizer (fullsize)
-                    </p>
-                </a>
-                <p class="price-product">892.500 đ</p>
-            </div>
-        </div>
+        @*<div class="goiy">
+                <h3>Gợi ý cho bạn</h3>
+                <div>
+                    <img src="~/Images/Products/Paula_s Choices/kem_dưỡng_ẩm_giàu_chất_điện_giải-removebg-preview.png" class="image-goiy" />
+                    <a href="#">
+                        <p class="name-product">
+                            Kem dưỡng ẩm giàu chất điện giải water - Infusing Electrolyte Moisturizer (fullsize)
+                        </p>
+                    </a>
+                </div>
+                <div>
+                    <img src="~/Images/Products/Paula_s Choices/kem_dưỡng_ẩm_giàu_chất_điện_giải-removebg-preview.png" class="image-goiy" />
+                    <a href="#">
+                        <p class="name-product">
+                            Kem dưỡng ẩm giàu chất điện giải water - Infusing Electrolyte Moisturizer (fullsize)
+                        </p>
+                    </a>
+                    <p class="price-product">892.500 đ</p>
+                </div>
+            </div>*@
 
     </div>
 
-
-
     <script>
-      let slideIndex = 1;
-      showSlides(slideIndex);
-      function plusSlides(n) {
-        showSlides(slideIndex += n);
-      }
-      function currentSlide(n) {
-        showSlides(slideIndex = n);
-      }
-      function showSlides(n) {
-        let i;
-        let slides = document.getElementsByClassName("mySlides");
-        let dots = document.getElementsByClassName("demo");
-        let captionText = document.getElementById("caption");
-        if (n > slides.length) {slideIndex = 1}
-        if (n < 1) {slideIndex = slides.length}
-        for (i = 0; i < slides.length; i++) {
-          slides[i].style.display = "none";
+        function genderChanged(obj)
+        {
+            var message = document.getElementById('price');
+            var value = obj.value;
+            message.innerHTML = value;
+
+
+
         }
-        for (i = 0; i < dots.length; i++) {
-          dots[i].className = dots[i].className.replace(" active", "");
-        }
-        slides[slideIndex-1].style.display = "block";
-        dots[slideIndex-1].className += " active";
-        captionText.innerHTML = dots[slideIndex-1].alt;
-      }
     </script>
+
     <script>
-//<![CDATA[
-$('input.input-quantity').each(function() {
-  var $this = $(this),
-    qty = $this.parent().find('.is-form'),
-    min = Number($this.attr('min')),
-    max = Number($this.attr('max'))
-  if (min == 0) {
-    var d = 0
-  } else d = min
-  $(qty).on('click', function() {
-    if ($(this).hasClass('minus')) {
-      if (d > min) d += -1
-    } else if ($(this).hasClass('plus')) {
-      var x = Number($this.val()) + 1
-      if (x <= max) d += 1
-    }
-    $this.attr('value', d).val(d)
-  })
-})
-//]]></script>
+              let slideIndex = 1;
+              showSlides(slideIndex);
+              function plusSlides(n) {
+                showSlides(slideIndex += n);
+              }
+              function currentSlide(n) {
+                showSlides(slideIndex = n);
+              }
+              function showSlides(n) {
+                let i;
+                let slides = document.getElementsByClassName("mySlides");
+                let dots = document.getElementsByClassName("demo");
+                let captionText = document.getElementById("caption");
+                if (n > slides.length) {slideIndex = 1}
+                if (n < 1) {slideIndex = slides.length}
+                for (i = 0; i < slides.length; i++) {
+                  slides[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+                  dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex-1].style.display = "block";
+                dots[slideIndex-1].className += " active";
+                captionText.innerHTML = dots[slideIndex-1].alt;
+              }
+            </script>
+            <script>
+        //<![CDATA[
+        $('input.input-quantity').each(function() {
+          var $this = $(this),
+            qty = $this.parent().find('.is-form'),
+            min = Number($this.attr('min')),
+            max = Number($this.attr('max'))
+          if (min == 0) {
+            var d = 0
+          } else d = min
+          $(qty).on('click', function() {
+            if ($(this).hasClass('minus')) {
+              if (d > min) d += -1
+            } else if ($(this).hasClass('plus')) {
+              var x = Number($this.val()) + 1
+              if (x <= max) d += 1
+            }
+            $this.attr('value', d).val(d)
+          })
+        })
+        //]]></script>
 </body>
 </html>
+
