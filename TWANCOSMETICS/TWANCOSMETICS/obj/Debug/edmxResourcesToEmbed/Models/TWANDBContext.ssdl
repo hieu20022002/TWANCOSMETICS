@@ -66,14 +66,14 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="u_image" Type="text" />
+    <Property Name="u_image" Type="nvarchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="Inventory">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="variant" Type="text" Nullable="false" />
+    <Property Name="variant" Type="nvarchar" MaxLength="50" />
     <Property Name="product_id" Type="int" Nullable="false" />
     <Property Name="quantity" Type="decimal" Precision="18" Scale="0" Nullable="false" />
     <Property Name="price" Type="float" Nullable="false" />
@@ -90,7 +90,7 @@
     <Property Name="email" Type="nvarchar" MaxLength="100" />
     <Property Name="address" Type="text" Nullable="false" />
     <Property Name="phone" Type="nvarchar" MaxLength="10" />
-    <Property Name="total" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="total" Type="decimal" Precision="18" Scale="0" Nullable="false" />
     <Property Name="paid" Type="tinyint" Nullable="false" />
     <Property Name="status" Type="nvarchar" MaxLength="100" />
     <Property Name="created_at" Type="datetime" Nullable="false" />
@@ -104,7 +104,7 @@
     <Property Name="order_id" Type="int" Nullable="false" />
     <Property Name="inventory_id" Type="int" Nullable="false" />
     <Property Name="quantity" Type="int" Nullable="false" />
-    <Property Name="total" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="total" Type="decimal" Precision="18" Scale="0" Nullable="false" />
   </EntityType>
   <EntityType Name="Post">
     <Key>

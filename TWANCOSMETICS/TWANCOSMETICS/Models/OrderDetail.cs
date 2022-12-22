@@ -17,7 +17,7 @@ namespace TWANCOSMETICS.Models
         public int order_id { get; set; }
         public int inventory_id { get; set; }
         public int quantity { get; set; }
-        public Nullable<decimal> total { get; set; }
+        public decimal total { get; set; }
     
         public virtual Order Order { get; set; }
     }

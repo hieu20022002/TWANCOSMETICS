@@ -76,7 +76,7 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="u_image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="u_image" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Brand" Relationship="Self.Fk_Brand_Image" FromRole="Image" ToRole="Brand" />
     <NavigationProperty Name="Post" Relationship="Self.FK_Post_Image" FromRole="Image" ToRole="Post" />
     <NavigationProperty Name="Product" Relationship="Self.Fk_Product_Image" FromRole="Image" ToRole="Product" />
@@ -88,7 +88,7 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="variant" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="variant" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="product_id" Type="Int32" Nullable="false" />
     <Property Name="quantity" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
     <Property Name="price" Type="Double" Nullable="false" />
@@ -107,7 +107,7 @@
     <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="phone" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-    <Property Name="total" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="total" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
     <Property Name="paid" Type="Byte" Nullable="false" />
     <Property Name="status" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="created_at" Type="DateTime" Nullable="false" Precision="3" />
@@ -124,7 +124,7 @@
     <Property Name="order_id" Type="Int32" Nullable="false" />
     <Property Name="inventory_id" Type="Int32" Nullable="false" />
     <Property Name="quantity" Type="Int32" Nullable="false" />
-    <Property Name="total" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="total" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
     <NavigationProperty Name="Order" Relationship="Self.FK_OrderDetail_Order" FromRole="OrderDetail" ToRole="Order" />
   </EntityType>
   <EntityType Name="Post">

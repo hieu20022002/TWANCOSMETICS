@@ -26,7 +26,7 @@ namespace TWANCOSMETICS.Models
         public string email { get; set; }
         public string address { get; set; }
         public string phone { get; set; }
-        public Nullable<decimal> total { get; set; }
+        public decimal total { get; set; }
         public byte paid { get; set; }
         public string status { get; set; }
         public System.DateTime created_at { get; set; }
