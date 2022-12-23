@@ -131,16 +131,8 @@
         </div>
         <div class="bieudo">
 
-            @using (Html.BeginForm("Chart", "Admin", FormMethod.Get))
-            {
-                <input type="date" id="fromDate" name="FromDate" runat="server">
-                <input type="date" id="toDate" name="ToDate" runat="server">
-                <button type="button" onkeyup="myFunction()">Submit</button>
 
-            }
-  
-
-            @*@Html.Action("Chart", "Admin",new { FromDate=new DateTime(),ToDate= new DateTime()})*@
+            @Html.Action("Chart", "Admin")
 
         </div>
     </div>

@@ -28,21 +28,12 @@ namespace TWANCOSMETICS.Areas.Admin.Controllers
 
             return View();
         }
-        [HttpGet]
-        public ActionResult Chart(DateTime FromDate=new DateTime(), DateTime ToDate= new DateTime())
+        
+        public ActionResult Chart()
         {
-            if(FromDate == new DateTime() || ToDate == new DateTime())
-            {
-                
-                ToDate= DateTime.Now;
-                FromDate= ToDate.AddYears(-1);
-            }
-            else if(FromDate > DateTime.MinValue)
-            {
-
-                ToDate = DateTime.Now;
-                FromDate = ToDate.AddYears(-1);
-            }
+                DateTime ToDate = DateTime.Now;
+                DateTime FromDate = ToDate.AddYears(-1);
+            
             List<DataPoint> dataPoints = new List<DataPoint>();
             var data = DataProvider.Ins.DB.Order.Where(x => x.created_at >= FromDate && x.created_at <= ToDate && x.paid == 1).GroupBy(x => new { Total = x.total, Month = x.created_at.Month }).Select(y => new DataPoint{ x = (int)y.Key.Month, y = (decimal)y.Sum(c => c.total) }).ToList();
 
