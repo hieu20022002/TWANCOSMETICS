@@ -52,6 +52,8 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Build.Tasks.v4.0" />
+    <Reference Include="Microsoft.Build.Utilities.v4.0" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
@@ -141,9 +143,11 @@
     <Compile Include="Code\DataProvider.cs" />
     <Compile Include="Code\StringHelper.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Dao\BrandDao.cs" />
+    <Compile Include="Dao\CartDao.cs" />
     <Compile Include="Dao\OrderDao.cs" />
     <Compile Include="Dao\ProductDao.cs" />
     <Compile Include="Global.asax.cs">
@@ -162,6 +166,7 @@
     <Compile Include="Models\CartDetail.cs">
       <DependentUpon>TWANDBContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\Category.cs">
       <DependentUpon>TWANDBContext.tt</DependentUpon>
     </Compile>
@@ -332,7 +337,9 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Styles\Css\CartPage.css" />
     <Content Include="Styles\Css\AdminStatics.css" />
+    <Content Include="Styles\Css\Footer.css" />
     <Content Include="Styles\Css\HomePage.css" />
     <Content Include="Styles\Css\InfoManagement.css" />
     <Content Include="Styles\Css\Login.css" />
@@ -341,7 +348,6 @@
     <Content Include="Styles\Css\ProductDetail.css" />
     <Content Include="Styles\Css\ProductsPage.css" />
     <Content Include="Styles\Css\Register.css" />
-    <Content Include="Styles\Css\util.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -364,6 +370,8 @@
     <Content Include="Views\Shared\NavigationMenu.cshtml" />
     <Content Include="Views\Shared\Footer.cshtml" />
     <Content Include="Views\Product\ProductDetail.cshtml" />
+    <Content Include="Views\Cart\Cart.cshtml" />
+    <Content Include="Views\Cart\AddItem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Ajax.Utilities;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net.NetworkInformation;
 using System.Reflection;
@@ -64,6 +65,19 @@ namespace TWANCOSMETICS.Dao
             unit = unit.OrderBy(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
             return unit;
             
+        }
+        public List<int> Inventory(int IdProduct)
+        {
+            List<int> inventory = new List<int>();
+           var model = DataProvider.Ins.DB.Inventory.Where(x => x.product_id == IdProduct);
+            model.OrderBy(x => x.price);
+            foreach (var x in model)
+            {
+                inventory.Add(x.id);
+            }
+            
+            return inventory;
+
         }
         public List<ProductViewModel> ListProduct(string sort = "", int cateID = 0, int brandID = 0)
         {
@@ -195,11 +209,18 @@ namespace TWANCOSMETICS.Dao
                 product.u_image = x.u_image;
                 product.status = x.p.status;
                 product.amount = 0;
+                product.inventory = Inventory(x.p.id);
                 product.Unit = Unit(x.p.id);
             }
 
             
             return product;
         } 
+        public Inventory ViewDetailCart(int id,double price)
+        {
+            var inventory = DataProvider.Ins.DB.Inventory.Where(x => x.product_id == id && x.price ==price).FirstOrDefault();
+            return inventory;
+
+        }
     }
 }

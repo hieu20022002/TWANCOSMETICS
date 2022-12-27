@@ -8,6 +8,7 @@ namespace TWANCOSMETICS.Models
     public class ProductDetailModel
     {
         public int id { get; set; }
+        public List<int> inventory { get; set; }
         public string name { get; set; }
         public string description { get; set; }
         public string Brand { get; set; }
@@ -15,6 +16,7 @@ namespace TWANCOSMETICS.Models
         public string u_image { get; set; }
         public byte status { get; set; }
         public int amount { get; set; }
+        
         public Dictionary<string, double> Unit { get; set; }
         
     }

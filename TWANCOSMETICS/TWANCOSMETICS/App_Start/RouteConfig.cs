@@ -22,6 +22,12 @@ namespace TWANCOSMETICS
               namespaces: new[] { "TWANCOSMETICS.Controllers" }
              );
             routes.MapRoute(
+              name: "Cart",
+              url: "addtocart",
+              defaults: new { controller = "Cart", action = "AddItem", id = UrlParameter.Optional },
+              namespaces: new[] { "TWANCOSMETICS.Controllers" }
+             );
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },

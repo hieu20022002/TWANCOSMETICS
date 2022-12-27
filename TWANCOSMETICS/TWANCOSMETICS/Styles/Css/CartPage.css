@@ -1,0 +1,365 @@
+﻿body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+.frame{
+    position:static;
+    width: 100%;    
+}
+.heading1 {
+    position: center;
+    display: flex;
+    color: white;
+    background-color: #E0BBE4;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    height: auto;
+    font-size: 1.5vw;
+}
+
+.logo {
+    position: absolute;
+    float: left;
+    width: 22vw;
+    height: 15vw;
+    margin-left: 0;
+}
+
+.thanhtimkiem {
+    margin-left: 18%;
+    margin-top: 4%;
+    width: 65%;
+    position: absolute;
+    background-color: white;
+    border-radius: 150px;
+    border: 2px solid #000000;
+}
+
+.timkiemsp {
+    float: left;
+    width: 100%;
+    background: #FDFEFE;
+    border: none;
+    border-radius: 50vw;
+    font-style: italic;
+    height: 2.4vw;
+    font-size: 1.2vw;
+}
+
+#icon {
+    color: black;
+    font-size: 3vw;
+    font-weight: bolder;
+    padding: 0;
+}
+
+.icon2 {
+    margin-top: 4%;
+    margin-right: 6vw;
+    float: right;
+}
+
+#icon-search {
+    display: flex;
+    align-content: center;
+    color: black;
+    font-size: 2.3vw;
+    font-weight: bolder;
+    position: absolute;
+    right: 0%;
+    border-radius: 170px;
+}
+.nav {
+    overflow: hidden;
+    margin-top: 10%;
+    margin-left: 4%;
+   
+}
+
+    .nav ul {
+    }
+
+    .nav li {
+        float: left;
+        display: block;
+        padding-right: 6%;
+    }
+
+    .nav a {
+        display: block;
+        font-weight: bolder;
+        text-decoration: none;
+        color: black;
+        font-size: 1.8vw;
+        padding: 1.2vw 1.2vw;
+        margin: auto;
+    }
+
+        .nav a:hover {
+            background-color: #E0BBE4;
+        }
+
+        .nav a:active {
+            background-color: #E0BBE4;
+        }
+
+.frame {
+    margin: 0;
+    background-color: #E5E7E9;
+    margin-top: 2%;
+    padding-left: 7%;
+    line-height: 3.5vw;
+    font-size: 1.5vw;
+}
+button {
+    text-decoration: none;
+    background: white;
+    border: none;
+    font-weight: bolder;
+    font-size: 28px;
+    color: black;
+}
+h1{
+    margin-left:7%;
+}
+.row {
+    margin-top: 1vw;
+    margin-left: 7%;
+    margin-right: 7%;
+}
+.column.right {
+    width: 20%;
+    float: right;
+    border: 1px solid #D9D9D9;
+}
+
+.column {
+    padding-right:0;
+}
+
+    .column.left {
+        width: 75%;       
+        float: left
+    }
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .column.right, .column.left {
+        width: 100%;
+    }
+}
+.flex-container {
+    display: flex;
+    width: 100%;
+    margin-top: 1vw;
+    flex-direction: row;
+}
+
+    .flex-container > div {
+        display: flex;
+        border-bottom: 1px solid #909497;
+        
+    }
+
+/* Responsive layout - makes a one column layout instead of a two-column layout */
+@media (max-width: 800px) {
+    .flex-container {
+        flex-direction: column;
+    }
+}
+.title {
+    font-size: 1.2vw;
+    background-color: #E0BBE4;
+    padding: 1vw;
+    display:flex;
+    align-items:center;
+    font-weight:bold;
+    padding-left: 1vw;
+}
+h4{
+    margin: 0;
+    padding-left: 1vw;
+}
+.title-sanpham{
+    width:55%
+}
+.title-giatien {
+    width: 15%;
+    
+}
+.title-soluong {
+    width: 15%;
+}
+.title-thanhtien {
+    width: 15%;
+}
+.product {
+    padding-left: 2vw;
+    width: 55%;
+    font-size: 1.2vw;
+    font-weight: bold;
+       
+}
+#image-product{
+    width:15vw;
+    height:10vw;
+}
+.name-product {
+    display: flex;
+    justify-content: space-around;
+    align-content: space-around;
+    align-items: center;
+    height:fit-content;
+    padding-left: 2vw;
+}
+.giatien {
+    width: 100%;
+    height: 3vw;
+    margin-top: 50%;
+    margin-bottom: 50%;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    text-align:center;
+    font-size:1.5vw;
+}
+.soluong {
+    width: 100%;
+    height: 3vw;
+    margin-top: 50%;
+    margin-bottom: 50%;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    text-align: center;
+}
+#button-xoa {
+    position: absolute;
+    margin-left: 61%;
+    margin-top: 9vw;
+    border-bottom: none;
+}
+#btxoa {
+    
+    font-size: 1.2vw;
+    font-weight:200;
+    
+}
+h3 {
+    display: flex;
+    justify-content: space-around;
+    align-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid #D9D9D9;
+}
+.hoadon {
+    border-bottom: 1px solid #D9D9D9;
+    padding-left:1vw;
+    font-size:1.2vw;
+    
+}
+.hoadon-frame2{
+    padding-left:1vw;
+}
+.tamtinh {
+    margin-left:75%;
+    font-size: 1.2vw;
+    width:fit-content;
+    
+}
+.giohang-frame2 {
+    border-bottom: 1px solid #909497;
+    margin-bottom: 2vw;
+}
+.button-dathang {
+    background-color: #FF9AA2;
+    color:white;
+    border-radius:50px;
+    font-weight:100;
+    padding:1vw;
+    font-size:1.5vw;
+}
+.muahang {
+    text-decoration: none;
+    color:black;
+    font-size:1.5vw;
+    line-height:2vw;
+}
+.button-dathang2 {
+    background-color: #FF9AA2;
+    color: white;
+    border-radius: 50px;
+    font-weight: 100;
+    padding: 1vw;
+    font-size: 1.5vw;
+    margin-left:3vw;
+    margin-bottom:5vw;
+    margin-top:8vw;
+
+}
+#arrow-back{
+    border-radius:150px;
+    border:1px solid black;
+}
+footer {
+    background-color: #957DAD;
+    padding-top: 6%;
+    padding-left: 2%;
+    padding-right: 2%;
+    margin-bottom: 0;
+}
+
+.nav2 {
+    overflow: hidden;
+    position: relative;
+}
+
+    .nav2 a {
+        margin: auto;
+        text-align: center;
+        font-weight: bolder;
+        text-decoration: none;
+        color: black;
+        font-size: 1.5vw;
+        padding: 6%;
+        margin: auto;
+        justify-content: space-around;
+        align-content: space-around;
+    }
+
+.logo2 {
+    position: absolute;
+    width: 20vw;
+    height: 15vw;
+    margin-left: 37%;
+    background: #957DAD;
+    align-content: center;
+}
+
+.line2 {
+    border: 1px solid #00000080;
+    padding-left: 0;
+    padding-right: 0;
+    position: relative;
+}
+
+.footer-text {
+    display: flex;
+    align-content: space-around;
+    justify-content: space-around;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    font-size: 1vw;
+    position: relative;
+    margin-bottom: 0;
+    margin-right: 0;
+}

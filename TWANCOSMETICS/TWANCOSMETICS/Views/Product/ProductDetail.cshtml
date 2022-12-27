@@ -65,19 +65,23 @@
                 </div>
             }
         }*@
-        <div class="giatien">
-            <span id="price">@Model.Unit.ElementAt(0).Value.ToString()</span><span> ₫</span>
-        </div>
 
-        <div>
-            <label>Loại</label>
-            <select id="Loai" onchange="genderChanged(this)">
-                @foreach (var variant in Model.Unit)
-                {
-                    <option value=@variant.Value.ToString("c0")>@variant.Key.ToString()</option>
+        <form action="" method="post" class="cart">
+            <div class="giatien">
+                <span id="price" name="price" for="price">@Model.Unit.ElementAt(0).Value</span><span> ₫</span>
+            </div>
 
-                }
-            </select>
+            <div>
+                <label>Loại</label>
+                <select id="price" onchange="genderChanged(this)" for="price">
+
+                    @foreach (var variant in Model.Unit)
+                    {
+                        <option value=@variant.Value for="price">@variant.Key</option>
+
+                    }
+                </select>
+                
                 @*@Html.DropDownList("Loai", new SelectList(Model.Unit.Keys), new { onchange = "genderChanged(this)" })*@
 
                 @*<select>
@@ -85,23 +89,31 @@
                 <option>30ml</option>
                 <option>100ml</option>
             </select>*@
-        </div>
+            </div>
             <div class="buttons_added">
                 <input class="minus is-form" type="button" value="-">
-                <input aria-label="quantity" class="input-quantity" max="999" min="1" name="" type="number" value="">
+                <input aria-label="quantity" class="input-quantity" max="999" min="1" name="" type="number" value="" for="quantity">
+
                 <input class="plus is-form" type="button" value="+">
             </div>
             <div class="chucnang">
-                <button class="btthem">
-                    Thêm vào giỏ hàng
-                    <span class="material-symbols-outlined">
-                        add_shopping_cart
-                    </span>
-                </button>
+                         
+                    <button class="btthem" data-id="@Model.id" href="?/addtocart/@(Model.id)">
+                        <a href="/addtocart?productId=@Model.id">Thêm vào giỏ hàng</a>
+                        <span class="material-symbols-outlined">
+                            add_shopping_cart
+                        </span>
+                    </button>
+
                 <button class="btthem">
                     Mua ngay
                 </button>
             </div>
+        </form>
+
+            
+
+
         </div>
 
     </div>

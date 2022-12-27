@@ -1,0 +1,103 @@
+﻿
+@{
+    Layout = null;
+
+}
+@{ 
+    double Total2 = 0;
+}
+@model List<TWANCOSMETICS.Models.CartItem>
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Giỏ hàng</title>
+    <link href="~/Styles/Css/CartPage.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+
+
+    <div class="frame">
+        Trang chủ/Giỏ hàng
+    </div>
+    <h1>Giỏ hàng</h1>
+    <div class="row">
+        <div class="column left">
+
+            <div class="title">
+                <h4 class="title-sanpham">Sản phẩm</h4>
+                <h4 class="title-giatien">Giá tiền </h4>
+                <h4 class="title-soluong">Số lượng</h4>
+                <h4 class="title-thanhtien">Thành tiền</h4>
+            </div>
+            
+            @foreach (var item in Model)
+            {
+                <div class="flex-container">
+                    <div class="product">
+                        <img src=@item.u_image id="image-product" />
+                        <a class="name-product">@item.Product.name</a>
+                    </div>
+                    <div class="title-giatien">
+                        <input type="text" class="giatien" value=@item.inventory.price.ToString("c0")>
+
+                    </div>
+                    <div class="title-soluong">
+                        <input type="number" id="quantity" name="quantity" min="1" max="1000" class="soluong" value=@item.cartdetail.quantity>
+                    </div>
+                    <div class="title-giatien">
+                        @{var total = item.cartdetail.quantity * item.inventory.price;
+                            Total2 += total;
+                            }
+                        <input type="text" class="giatien" value=@total>
+
+                    </div>
+                    <div id="button-xoa">
+                        <button id="btxoa">Xóa</button>
+                    </div>
+                </div>
+             }
+
+
+            <div class="giohang-frame2">
+                <div class="tamtinh">
+
+                    <p>Tạm tính:</p>
+                    <p style="color: #909497">(Đã bao gồm VAT)</p>
+                    <button class="button-dathang">Tiến hành đặt hàng</button>
+
+                </div>
+
+                <a href="#" class="muahang">
+                    <span class="material-symbols-rounded">
+                        arrow_circle_left
+                    </span>
+                    Tiếp tục mua hàng
+                </a>
+
+            </div>
+
+
+        </div>
+        <div class="column right">
+            <h3>Hóa đơn của bạn</h3>
+            <div class="hoadon">
+                <p>Tạm tính: @Total2.ToString("c0")</p>
+                <p>Giảm giá:</p>
+                <p>Khuyến mãi đã nhận được:</p>
+            </div>
+            <div class="hoadon-frame2">
+                <p>Tổng cộng: @Total2.ToString("c0")</p>
+                <p style="color: #909497">(Đã bao gồm VAT)</p>
+
+            </div>
+
+        </div>
+        <button class="button-dathang2">Tiến hành đặt hàng</button>
+    </div>
+</body>
